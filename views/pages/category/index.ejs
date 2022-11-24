@@ -1,0 +1,35 @@
+<main>
+    <div class="h-100">
+    <div class="d-flex flex-column justify-content-center h-25">
+        <h2 class="align-self-center">Kategorien</h2>
+    </div>
+
+    <div class="px-2 d-flex flex-column">
+        <table class="table">
+            <thead>
+            <tr>
+            <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% cats.forEach((cat) => { %>
+                <tr>
+                    <td>
+                        <%= cat.name %>
+                    </td>
+                    <td>
+                        <button class="unfelbar-button align-self-center" onclick="window.location='/category/<%= cat.id %>/destroy'">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>
+        <button class="unfelbar-button align-self-center" onclick="window.location='/category/new'">
+            Hinzufügen
+        </button>
+    </div>
+</div>
+</div>
+</main>

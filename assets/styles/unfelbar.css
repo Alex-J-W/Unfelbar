@@ -1,0 +1,254 @@
+/* DEFAULT TAGS */
+body {
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: 100vh;
+
+  font-family: "Bai Jamjuree", serif;
+  background-color: #E9C46A24;
+}
+
+/* Headings and nav font */
+h1, h2, h3, h4, h5, h6, nav, footer {
+  font-family: "Fredericka The Great", serif;
+}
+
+/* Default layout */
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+/* UNFELBAR CLASSES */
+/* Color classes */
+.unfelbar-black {
+  color: black;
+}
+
+.unfelbar-text-darkblue {
+  color: #264653;
+}
+.unfelbar-bg-darkblue {
+  background-color: #264653;
+}
+
+.unfelbar-text-darkbrown {
+  color: #BC6C25;
+}
+.unfelbar-bg-darkbrown {
+  background-color: #BC6C25;
+}
+
+.unfelbar-text-brown {
+  color: #DDA15E;
+}
+.unfelbar-bg-brown {
+  background-color: #DDA15E;
+}
+
+.unfelbar-text-lightbrown {
+  color: #E9C46A;
+}
+.unfelbar-bg-lightbrown {
+  background-color: #E9C46A;
+}
+
+.unfelbar-text-white {
+  color: white;
+}
+
+/* Shadows */
+.unfelbar-shadow {
+  box-shadow: 0 0 7px #264653;
+}
+.unfelbar-shadow-bot {
+  box-shadow: 0px 2px 4px #264653;
+}
+.unfelbar-shadow-top {
+  box-shadow: 0px -2px 4px #264653;
+}
+.unfelbar-shadow-card {
+  box-shadow: 2px 2px 5px #264653;
+}
+
+.main-logo{
+  height: 70px;
+}
+
+.side-logo{
+  height: 120px;
+}
+
+.unfelbar-input {
+  position: relative;
+}
+.unfelbar-background-chalk {
+  background-image: url("../images/backgrounds/chalkboard.jpg");
+  background-size: cover;
+}
+.unfelbar-background-konstanz {
+  background-image: url("../images/backgrounds/Konstanz_bei_Nacht.jpg");
+  background-size: cover;
+}
+.unfelbar-border {
+  border: 2px solid;
+}
+
+.unfelbar-link-button{}
+
+.unfelbar-icon {
+  fill: white;
+}
+.unfelbar-icon:hover {
+  fill: #E9C46A;
+  transition: 0.3s;
+}
+
+.unfelbar-text-hover-dark:hover{
+  color: #BC6C25;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.unfelbar-tag{
+  color: #264653;
+  border: none;
+  background: none;
+}
+.unfelbar-tag:hover{
+  color: #BC6C25;
+  box-shadow: 0px 0px 3px #264653;
+  transition: 0.3s;
+}
+
+/* Header and Footer specific */
+footer {
+  height: 3rem;
+}
+
+/* Landing page specific */
+.unfelbar-carousel-sm {
+  height: 10rem;
+}
+.unfelbar-carousel-lg {
+  display: none !important;
+}
+.card {
+  min-width: 200px !important;
+}
+.card:hover, .card:hover * {
+  background-color: #DDA15E !important;
+  transition: 0.3s;
+}
+
+.unfelbar-nav-item-lg {
+  display: none;
+}
+
+/* Media Queries */
+@media screen and (min-width: 769px) {
+  /* An item is thought to be a text link in the navbar */
+  .unfelbar-nav-item-lg{
+    display: block;
+  }
+
+  .unfelbar-carousel-sm{
+    display: none !important;
+  }
+
+  .unfelbar-carousel-lg{
+    display: flex !important;
+    height: 13rem;
+  }
+}
+
+
+
+/* Example  */
+
+.customClass {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .customClass {
+    display: block;
+  }
+}
+
+.unfelbar-button{
+  background-image: url("../images/backgrounds/button_background.jpg");
+  background-size: cover;
+
+  padding: 0 10px;
+max-width: 120px;
+
+  color: #E9C46A;
+  border-radius: 50px;
+  border: 2px solid #264653;
+  transition: all 0.4s;
+}
+.unfelbar-button:hover{
+  color: #BC6C25;
+  border-radius: 2px;
+
+}
+
+.unfelbar-table{
+  max-width: 400px;
+}
+
+.unfelbar-input{
+  margin-bottom: 10px;
+  max-width: 300px;
+  padding: 0 5px;
+  border: 2px solid #264653;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+}
+.unfelbar-input:focus{
+  border: 2px solid #BC6C25;
+  outline: none;
+}
+
+.unfelbar-bierdeckel{
+  position: relative;
+  padding: .5rem;
+  margin: .5rem 1.5rem;
+
+  width: 18rem;
+  min-width: 200px;
+
+  border-radius: 19px;
+
+  box-shadow: 2px 2px 5px #264653;
+  background-color: #E9C46A;
+}
+.unfelbar-bierdeckel:hover{
+  background-color: #BC6C25;
+  transition: all 0.4s ease-in;
+}
+
+.unfelbar-bierdeckel-label{
+  text-align: center;
+  position: absolute;
+
+  width: 75%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: inherit;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.unfelbar-bierdeckel-image{
+  border-radius: 12px;
+  width: 100%;
+}
+

@@ -1,0 +1,32 @@
+<main>
+
+    <div class="d-flex flex-column justify-content-center h-25">
+        <h2 class="align-self-center">Neues Item hinzufügen</h2>
+    </div>
+
+        <form action="/item/new" method="post" class="h-100 ">
+            <div class="d-flex flex-column p-2 h-100 align-items-center">
+                    <label class="col-form-label-lg">Name</label>
+                    <input type="text" class="unfelbar-input" maxlength="80" name="name">
+
+                    <label class="col-form-label-lg">Preis</label>
+                    <input type="text" class="unfelbar-input" maxlength="8" name="price">
+
+                    <label class="col-form-label-lg">Beschreibung</label>
+                    <input type="text" maxlength="255" class="unfelbar-input" name="description">
+
+
+                <label class="col-form-label-lg">Kategorie</label>
+                <select class="form-select unfelbar-input" name="category">
+                    <% cats.forEach((cat) => { %>
+                        <option value="<%= cat.id %>"><%= cat.name %></option>
+                    <% }); %>
+                </select>
+            <div class="d-flex justify-content-around mt-4 w-100">
+                <button type="submit" class="unfelbar-button">Speichern</button>
+            </div>
+            </div>
+        </form>
+    <button class="unfelbar-button align-self-center mb-4" onclick="window.location='/item/showAll'">Zurück</button>
+
+</main>

@@ -1,0 +1,21 @@
+<main>
+    <div class="d-flex flex-column justify-content-center h-25">
+        <h2 class="align-self-center">Neue Kategorie hinzufügen</h2>
+    </div>
+<div class="d-flex flex-column align-items-center p-2 h-100">
+    <form action="/category/new" method="post" class="p-5">
+        <div class="d-flex flex-column">
+            <div class="form-group d-flex flex-column">
+                <label class="col-form-label-lg">Name</label>
+                <input type="text" class="unfelbar-input" maxlength="80" name="name" placeholder="Kategorie name" pattern="[A-Za-z0-9]{1,20}">
+            </div>
+            <div class="form-group d-flex flex-column">
+                <label class="col-form-label-lg">Reihenfolge</label>
+                <input type="number" class="unfelbar-input" name="ordernumber" placeholder="Rangnummer">
+            </div>
+            <button type="submit" class="unfelbar-button align-self-center mt-3">Speichern</button>
+        </div>
+    </form>
+    <button class="unfelbar-button align-self-center mt-3" onclick="window.location='/category/index'">Zurück</button>
+</div>
+</main>

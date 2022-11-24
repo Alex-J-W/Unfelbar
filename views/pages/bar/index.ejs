@@ -1,0 +1,37 @@
+<main class="overflow-scroll justify-content-start">
+
+    <!-- For spacing 'space-between' of main tag -->
+    <div class="d-flex flex-column justify-content-center align-items-center p-2 w-100">
+        <form action="/search" class="position-relative w-75">
+            <label class="w-100">
+                <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search"
+                       placeholder="Find your bar">
+            </label>
+            <img src="images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
+        </form>
+
+        <div class="d-flex justify-content-around w-100 my-2">
+            <form class="d-inline-block" action="/">
+                <input type="submit" class="m-1 rounded unfelbar-tag" value="Studenten">
+            </form>
+            <form class="d-inline-block" action="/">
+                <input type="submit" class="m-1 rounded unfelbar-tag" value="Cocktails">
+            </form>
+            <form class="d-inline-block" action="/">
+                <input type="submit" class="m-1 rounded unfelbar-tag" value="Livemusik">
+            </form>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center">
+    <% bars.forEach( (bar) => { %>
+        <div class="p-2 mx-4 my-2 card unfelbar-bg-lightbrown unfelbar-shadow-card " style="width: 18rem;">
+            <img src="/images/bars/bar_example.jpg" class="card-img-top rounded-2" alt="bar_example_1">
+            <div class="d-flex justify-content-center position-absolute top-0 start-50 translate-middle-x p-0 w-75 rounded-bottom text-center card-body unfelbar-bg-lightbrown">
+                <h5 class="card-title m-1"><%= bar.name; %></h5>
+            </div>
+        </div>
+    <% }); %>
+    </div>
+
+</main>
