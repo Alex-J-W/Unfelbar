@@ -10,6 +10,44 @@
 
 module.exports.routes = {
 
+  // Routes from unfelbar v1
+
+  // Landing page route
+  'GET /': 'bar.findLanding',
+
+  // Routes to CRUD items (Items on a menu)
+  'GET /item/showAll': 'item.find',
+  // TODO: add 'bar id to route -- done next release'
+  'GET /item/new': 'item.new',
+  'POST /item/new': 'item.create',
+  'GET /item/:id/destroy': 'item.destroyOne',
+
+  // Index shows all items added to menu
+  'GET /item/:id': 'item.findOne',
+  'GET /item/:id/edit': 'item.editOne',
+  'POST /item/:id/update': 'item.updateOne',
+
+
+  'GET /item/show' : {view : 'pages/item/show'},
+
+  // Route that loads the view to set new category
+  'GET /category/new': {view: 'pages/category/new'},
+  // Route that writes a new category into DB
+  'POST /category/new' : 'category.create',
+  // Route that loads view for all categories
+  'GET /category/index': 'category.find',
+  // Route that removes a given category
+  'GET /category/:id/destroy': 'category.destroyOne',
+
+  // Only for admins right now...
+  'GET /bar/new' : {view: 'pages/bar/new'},
+  'POST /bar/new': 'bar.create',
+  'GET /bars/showAll' : 'bar.show',
+
+  'GET /search': 'bar.find',
+
+  'GET /buttons' : {view: 'pages/design'},
+
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
