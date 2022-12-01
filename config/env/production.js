@@ -236,8 +236,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cookie: {
-      // todoo ??
-      // secure: true,
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
 
@@ -267,10 +266,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
      onlyAllowOrigins: [
-       'https://lido.onreder.com',
+       'https://unfelbar.onreder.com',
      ],
-
-    // TODO maybe change url
 
     /***************************************************************************
     *                                                                          *
@@ -390,8 +387,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    // todo render url
-    baseUrl: 'https://lido.onreder.com',
+    baseUrl: 'https://unfelbar.onreder.com',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
