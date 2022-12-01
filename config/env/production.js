@@ -273,7 +273,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
      onlyAllowOrigins: [
-       'https://unfelbar.onreder.com',
+       'https://unfelbar.onrender.com',
      ],
 
     /***************************************************************************
@@ -394,7 +394,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://unfelbar.onreder.com',
+    baseUrl: 'https://unfelbar.onrender.com',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
