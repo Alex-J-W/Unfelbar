@@ -56,7 +56,7 @@ module.exports.datastores = {
     password: 'n100117',
     port:33061,
     host: '193.196.53.194',
-    database: 'unfelbar_test'
+    database: 'unfelbar_prod'
 
   },
 
