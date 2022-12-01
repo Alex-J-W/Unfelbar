@@ -46,8 +46,6 @@ module.exports.routes = {
 
   'GET /search': 'bar.find',
 
-  'GET /buttons' : {view: 'pages/design'},
-
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
