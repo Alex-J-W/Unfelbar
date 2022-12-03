@@ -22,4 +22,6 @@ module.exports.policies = {
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
 
+  // Custom policies for actions
+  'dashboard/view-landing': true,
 };
