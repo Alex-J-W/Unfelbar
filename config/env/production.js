@@ -15,7 +15,7 @@
  * > it to your .gitignore file.  If your repository will be publicly viewable,
  * > don't add private/sensitive data (like API secrets / db passwords) to this file!
  *
- * For more best practices and tips, see:
+ * For best practices and tips, see:
  * https://sailsjs.com/docs/concepts/deployment
  */
 
@@ -272,9 +272,9 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-     onlyAllowOrigins: [
-       'https://unfelbar.onrender.com',
-     ],
+    onlyAllowOrigins: [
+      'https://unfelbar.onrender.com',
+    ],
 
     /***************************************************************************
     *                                                                          *
