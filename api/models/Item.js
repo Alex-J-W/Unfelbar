@@ -1,3 +1,5 @@
+// TODO think about renaming item
+
 module.exports = {
     attributes: {
         name: { type: 'string', columnType: 'varchar(80)', required: true },
