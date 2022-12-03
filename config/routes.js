@@ -39,23 +39,16 @@ module.exports.routes = {
   // Route that removes a given category
   'GET /category/:id/destroy': 'category.destroyOne',
 
-  // Only for admins right now...
-  'GET /bar/new' : {view: 'pages/bar/new'},
-  'POST /bar/new': 'bar.create',
-  'GET /bars/showAll' : 'bar.show',
-
-  'GET /search': 'bar.find',
-
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action : 'dashboard/view-landing'},
+  'GET /':                   { action: 'dashboard/view-landing'},
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
-  'GET /faq':                { action:   'view-faq' },
-  'GET /legal/terms':        { action:   'legal/view-terms' },
-  'GET /legal/privacy':      { action:   'legal/view-privacy' },
-  'GET /contact':            { action:   'view-contact' },
+  'GET /faq':                { action: 'view-faq' },
+  'GET /legal/terms':        { action: 'legal/view-terms' },
+  'GET /legal/privacy':      { action: 'legal/view-privacy' },
+  'GET /contact':            { action: 'view-contact' },
 
   'GET /signup':             { action: 'entrance/view-signup' },
   'GET /email/confirm':      { action: 'entrance/confirm-email' },
@@ -69,6 +62,9 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
+  'GET /bar/new':            { action: 'bar/create-view'},
+  'GET /bars' :              { action: 'bar/find-all'},
+  'GET /search':             { action: 'bar/find-by-name'},
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
@@ -99,4 +95,6 @@ module.exports.routes = {
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
   'POST  /api/v1/observe-my-session':                    { action: 'observe-my-session', hasSocketFeatures: true },
 
+
+  'POST /bar/new': { action : 'bar/create'},
 };
