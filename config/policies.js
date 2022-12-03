@@ -24,4 +24,11 @@ module.exports.policies = {
 
   // Custom policies for actions
   'dashboard/view-landing': true,
+
+  // TODO: Make super user only
+  'bar/create-view': true,
+  'bar/create': true,
+
+  'bar/find-all': true,
+  'bar/find-by-name': true,
 };
