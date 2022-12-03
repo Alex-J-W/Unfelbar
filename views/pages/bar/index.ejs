@@ -1,8 +1,11 @@
+
+<!-- TODO: Add categories for bars etc... -->
 <main class="overflow-scroll justify-content-start">
 
     <!-- For spacing 'space-between' of main tag -->
     <div class="d-flex flex-column justify-content-center align-items-center p-2 w-100">
         <form action="/search" class="position-relative w-75">
+            <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
             <label class="w-100">
                 <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search"
                        placeholder="Find your bar">
