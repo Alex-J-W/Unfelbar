@@ -4,6 +4,7 @@
  * A user who can log in to this application.
  */
 
+// TODO Add user parameters to distinguish between bar owner and user - a user also needs tickets and tours
 module.exports = {
 
   attributes: {
