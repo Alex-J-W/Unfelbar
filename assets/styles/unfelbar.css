@@ -228,6 +228,8 @@ max-width: 120px;
   box-shadow: 2px 2px 5px #264653;
   background-color: #E9C46A;
 }
+/* TODO: make transition look good */
+
 .unfelbar-bierdeckel:hover{
   background-color: #BC6C25;
   transition: all 0.4s ease-in;
