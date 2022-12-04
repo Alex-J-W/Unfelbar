@@ -1,3 +1,4 @@
+// TODO add better columns and relationships (ticket, owner,...)
 module.exports = {
   attributes: {
     name: { type: 'string', columnType: 'varchar(80)', required: true },

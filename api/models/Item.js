@@ -1,4 +1,4 @@
-// TODO think about renaming item
+// TODO add columns
 
 module.exports = {
     attributes: {
