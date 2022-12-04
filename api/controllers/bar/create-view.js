@@ -15,7 +15,5 @@ module.exports = {
 
   },
 
-  fn: async () => {
-
-  }
+  fn: async () => {}
 };

@@ -12,7 +12,7 @@ module.exports = {
   exits: {
     success: {
       description: 'Created new Bar',
-      //Todo: On success reroute to bar page
+      //Todo: On success reroute to this bar page
       viewTemplatePath: 'pages/bar/new',
     }
   },
