@@ -31,4 +31,12 @@ module.exports.policies = {
 
   'bar/find-all': true,
   'bar/find-by-name': true,
+
+  // TODO: Make all down from here super user only !!!!
+  'admin/category/create-view': true,
+  'admin/category/create': true,
+  'admin/category/delete': true,
+  'admin/category/find': true,
+  // TODO: Make all up from here super user only !!!!
+
 };
