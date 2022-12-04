@@ -30,19 +30,11 @@ module.exports.routes = {
 
   'GET /item/show' : {view : 'pages/item/show'},
 
-  // Route that loads the view to set new category
-  'GET /category/new': {view: 'pages/category/new'},
-  // Route that writes a new category into DB
-  'POST /category/new' : 'category.create',
-  // Route that loads view for all categories
-  'GET /category/index': 'category.find',
-  // Route that removes a given category
-  'GET /category/:id/destroy': 'category.destroyOne',
 
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'dashboard/view-landing'},
+  'GET /':                   { action: 'dashboard/view-landing' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action: 'view-faq' },
@@ -62,9 +54,18 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
-  'GET /bar/new':            { action: 'bar/create-view'},
-  'GET /bars' :              { action: 'bar/find-all'},
-  'GET /search':             { action: 'bar/find-by-name'},
+  // Routes to interact with bars
+  'GET /bar/new':            { action: 'bar/create-view' },
+  'POST /bar/new':           { action: 'bar/create' },
+  'GET /bars' :              { action: 'bar/find-all' },
+  'GET /search':             { action: 'bar/find-by-name' },
+  // TODO: Get bar/:id
+
+  // Route that loads the view to create a new category
+  'GET /category/new':       { action: 'admin/category/create-view' },
+  'POST /category/new':      { action: 'admin/category/create' },
+  'GET /category/index':     { action: 'admin/category/find' },
+  'GET /category/kill/:id':  { action: 'admin/category/delete' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
@@ -94,7 +95,4 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
   'POST  /api/v1/observe-my-session':                    { action: 'observe-my-session', hasSocketFeatures: true },
-
-
-  'POST /bar/new': { action : 'bar/create'},
 };
