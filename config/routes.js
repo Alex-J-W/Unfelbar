@@ -10,16 +10,8 @@
 
 module.exports.routes = {
 
-  // Routes from unfelbar v1
-
-  // Landing page route
-
-
   // Routes to CRUD items (Items on a menu)
-  'GET /item/showAll': 'item.find',
-  // TODO: add 'bar id to route -- done next release'
-  'GET /item/new': 'item.new',
-  'POST /item/new': 'item.create',
+
   'GET /item/:id/destroy': 'item.destroyOne',
 
   // Index shows all items added to menu
@@ -29,7 +21,6 @@ module.exports.routes = {
 
 
   'GET /item/show' : {view : 'pages/item/show'},
-
 
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
@@ -53,19 +44,6 @@ module.exports.routes = {
   'GET /account':            { action: 'account/view-account-overview' },
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
-
-  // Routes to interact with bars
-  'GET /bar/new':            { action: 'bar/create-view' },
-  'POST /bar/new':           { action: 'bar/create' },
-  'GET /bars' :              { action: 'bar/find-all' },
-  'GET /search':             { action: 'bar/find-by-name' },
-  // TODO: Get bar/:id
-
-  // Route that loads the view to create a new category
-  'GET /category/new':       { action: 'admin/category/create-view' },
-  'POST /category/new':      { action: 'admin/category/create' },
-  'GET /category/index':     { action: 'admin/category/find' },
-  'GET /category/kill/:id':  { action: 'admin/category/delete' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
@@ -95,4 +73,24 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
   'POST  /api/v1/observe-my-session':                    { action: 'observe-my-session', hasSocketFeatures: true },
+
+  //  ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗
+  //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
+  //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
+  'GET /bar/new':            { action: 'bar/create-view' },
+  'POST /bar/new':           { action: 'bar/create' },
+  'GET /bars' :              { action: 'bar/find-all' },
+  'GET /search':             { action: 'bar/find-by-name' },
+  // TODO: Get bar/:id
+
+  // Route that loads the view to create a new category
+  'GET /category/new':       { action: 'admin/category/create-view' },
+  'POST /category/new':      { action: 'admin/category/create' },
+  'GET /category/index':     { action: 'admin/category/find' },
+  'GET /category/kill/:id':  { action: 'admin/category/delete' },
+
+  'GET /item/new':           { action: 'item/create-view' },
+  'POST /item/new':          { action: 'item/create' },
+  'GET /item/index':         { action: 'item/find-all' },
+
 };

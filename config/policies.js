@@ -25,7 +25,7 @@ module.exports.policies = {
   // Custom policies for actions
   'dashboard/view-landing': true,
 
-  // TODO: Make super user only
+  // TODO: Make logged-bar-user only
   'bar/create-view': true,
   'bar/create': true,
 
@@ -38,5 +38,10 @@ module.exports.policies = {
   'admin/category/delete': true,
   'admin/category/find': true,
   // TODO: Make all up from here super user only !!!!
+
+  // Todo: change to logged-bar-user
+  'item/create': true,
+  'item/create-view': true,
+  'item/find-all': true,
 
 };
