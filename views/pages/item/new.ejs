@@ -6,8 +6,8 @@
         <form action="/item/new" method="post" class="h-100 ">
             <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
             <div class="d-flex flex-column p-2 h-100 align-items-center">
-                    <label for="username" class="col-form-label-lg">Name</label>
-                    <input type="text" id="username" class="unfelbar-input" minlength="3" maxlength="80" name="name" required>
+                    <label for="itemName" class="col-form-label-lg">Name</label>
+                    <input type="text" id="itemName" class="unfelbar-input" minlength="3" maxlength="80" name="name" required>
 
                     <label for="price" class="col-form-label-lg">Preis</label>
                     <input type="number" id="price" class="unfelbar-input" min="0" max="100000" name="price" required>
