@@ -26,8 +26,10 @@ module.exports.policies = {
   'dashboard/view-landing': true,
 
   // TODO: Make logged-bar-user only
-  'bar/create-view': true,
-  'bar/create': true,
+  'bar/create-view': 'is-logged-in',
+  'bar/create-view-2': 'is-logged-in',
+  'bar/create': 'is-logged-in',
+  'bar/create-2': 'is-logged-in',
 
   'bar/find-all': true,
   'bar/find-by-name': true,
@@ -40,8 +42,16 @@ module.exports.policies = {
   // TODO: Make all up from here super user only !!!!
 
   // Todo: change to logged-bar-user
-  'item/create': true,
   'item/create-view': true,
+  'item/create': true,
+
+
   'item/find-all': true,
+  'item/show': true,
+  'item/edit': true,
+  'item/update': true,
+  'item/delete': true,
+
+  'event/create-view': true,
 
 };

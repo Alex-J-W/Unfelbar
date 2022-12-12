@@ -10,14 +10,9 @@
 
 module.exports.routes = {
 
-  // Routes to CRUD items (Items on a menu)
 
-  'GET /item/:id/destroy': 'item.destroyOne',
 
-  // Index shows all items added to menu
-  'GET /item/:id': 'item.findOne',
-  'GET /item/:id/edit': 'item.editOne',
-  'POST /item/:id/update': 'item.updateOne',
+
 
 
   'GET /item/show' : {view : 'pages/item/show'},
@@ -78,10 +73,14 @@ module.exports.routes = {
   //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
   //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
   'GET /bar/new':            { action: 'bar/create-view' },
+  'GET /bar/new-2':          { action: 'bar/create-view-2' },
   'POST /bar/new':           { action: 'bar/create' },
+  'POST /bar/new-2':         { action: 'bar/create-2' },
   'GET /bars' :              { action: 'bar/find-all' },
   'GET /search':             { action: 'bar/find-by-name' },
-  // TODO: Get bar/:id
+  'GET /bar/:id':            { action: 'bar/show'},
+
+  'GET /event/new':          { action: 'event/create-view'},
 
   // Route that loads the view to create a new category
   'GET /category/new':       { action: 'admin/category/create-view' },
@@ -91,6 +90,9 @@ module.exports.routes = {
 
   'GET /item/new':           { action: 'item/create-view' },
   'POST /item/new':          { action: 'item/create' },
+  'GET /item/edit/:id':      { action: 'item/edit' },
+  'POST /item/edit/:id':     { action: 'item/update' },
+  'GET /item/kill/:id':      { action: 'item/delete' },
+  'GET /item/:id':           { action: 'item/show' },
   'GET /item/index':         { action: 'item/find-all' },
-
 };
