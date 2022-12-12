@@ -20,11 +20,8 @@ module.exports = {
   },
 
   fn: async ({id}) => {
-    console.log(id);
 
     let bar = await Bar.findOne(id);
-    console.log({id});
-    console.log(bar);
 
     if(!bar){
       throw { barNotFound: '/bars'};
