@@ -8,7 +8,6 @@ module.exports = {
     success: {
       viewTemplatePath: 'pages/homepage'
     }
-
   },
 
   fn: async () => {
