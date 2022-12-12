@@ -3,28 +3,30 @@
         <h2 class="align-self-center">Item bearbeiten</h2>
     </div>
     <div class="d-flex flex-column align-items-center p-2 h-100">
-        <form action="/item/<%= item.id %>/update" method="post">
+        <form action="/item/edit/<%= item.id ;%>" method="post">
+            <input type="hidden" name="_csrf" value="<%= _csrf ;%>"/>
             <div class="d-flex flex-column p-2 h-100 align-items-start">
 
-                <label class="col-form-label-lg">Name</label>
-                <input type="text" class="unfelbar-input w-100" maxlength="80" value="<%= item.name %>" name="name">
+                <label for="itemName" class="col-form-label-lg">Name</label>
+                <input type="text" id="itemName" class="unfelbar-input" minlength="3" maxlength="80" name="name"
+                       value="<%= item.name ;%>" required>
 
+                <label for="price" class="col-form-label-lg">Preis</label>
+                <input type="number" id="price" class="unfelbar-input" min="0" max="100000" name="price"
+                       value="<%= item.price ;%>" required>
 
-                <label class="col-form-label-lg">Preis</label>
-                <input type="text" class="unfelbar-input w-100" maxlength="8" value="<%= item.price %>" name="price">
+                <label for="description" class="col-form-label-lg">Beschreibung</label>
+                <input type="text" id="description" class="unfelbar-input" minlength="0" maxlength="255"
+                       name="description" value="<%= item.description ;%>">
 
-                <label class="col-form-label-lg">Beschreibung</label>
-                <input type="text" maxlength="255" class="unfelbar-input" size="40" value="<%= item.description %>"
-                       name="description">
                 <div class="d-flex w-100 justify-content-around mt-4">
-
                     <button type="submit" class="unfelbar-button">Speichern</button>
-                    <button class="unfelbar-button" onclick="window.location='/item/<%= item.id%>/destroy'">Löschen</button>
                 </div>
 
             </div>
         </form>
-        <button class="unfelbar-button" onclick="window.location='/item/showAll'">Zurück</button>
+        <button class="unfelbar-button" onclick="window.location='/item/kill/<%= item.id ;%>'">Löschen</button>
+        <button class="unfelbar-button" onclick="window.location='/item/index'">Zurück</button>
 
     </div>
 </main>

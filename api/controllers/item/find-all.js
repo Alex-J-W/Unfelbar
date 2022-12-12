@@ -1,6 +1,6 @@
 module.exports = {
 
-  friendlyName: 'Find items',
+  friendlyName: 'Find all menu items for specific bar',
 
   description: 'Find all items and display them',
 
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   fn: async () => {
-    let items = await Item.find();
+    let items = await MenuItem.find();
     return {items};
   }
 };

@@ -7,13 +7,13 @@
             <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
             <div class="d-flex flex-column p-2 h-100 align-items-center">
                     <label for="itemName" class="col-form-label-lg">Name</label>
-                    <input type="text" id="itemName" class="unfelbar-input" minlength="3" maxlength="80" name="name" required>
+                    <input type="text" id="itemName" class="unfelbar-input" minlength="2" maxlength="80" name="name" required>
 
                     <label for="price" class="col-form-label-lg">Preis</label>
-                    <input type="number" id="price" class="unfelbar-input" min="0" max="100000" name="price" required>
+                    <input type="number" id="price" class="unfelbar-input" min="0" max="100000" step=".01" name="price" required>
 
                     <label for="description" class="col-form-label-lg">Beschreibung</label>
-                    <input type="text" id="description" class="unfelbar-input" minlength="0" maxlength="255" name="description">
+                    <input type="text" id="description" class="unfelbar-input" maxlength="255" name="description">
 
 
                 <label for="category" class="col-form-label-lg">Kategorie</label>

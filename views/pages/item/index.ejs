@@ -25,15 +25,10 @@
             <tbody class="table-group-divider">
             <% items.forEach( (item) => { %>
                 <tr onclick="window.location='/item/<%= item.id;%>';">
-                    <td>
-                        <%= item.name; %>
-                    </td>
-                    <td>
-                        <%= item.price; %>
-                    </td>
-                    <td>
-                        €
-                    </td>
+                    <td><%= item.name; %></td>
+                    <td><%= item.price; %></td>
+                    <!-- Todo: Fix this -->
+                    <td>€</td>
                 </tr>
             <% }); %>
             </tbody>

@@ -1,9 +1,8 @@
 module.exports = {
 
-  friendlyName: 'Create iten',
+  friendlyName: 'Create menu item view',
 
-  // TODO rename item
-  description: 'Show view to create a new item.',
+  description: 'Show view to create a new menu item.',
 
   inputs: {},
 
@@ -13,5 +12,9 @@ module.exports = {
     }
   },
 
-  fn: async () => {}
+  fn: async () => {
+    let cats = await Category.find();
+
+    return {cats};
+  }
 };

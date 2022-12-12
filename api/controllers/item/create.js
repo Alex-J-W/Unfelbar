@@ -7,21 +7,22 @@ module.exports = {
   inputs: {
     name: { type: 'string', allowNull: false, required: true },
     price: { type: 'number', allowNull: false, required: true },
-    description: { type: 'string', allowNull: false, required: true },
-    category: { type: 'string', allowNull: false, required: true }
+    description: { type: 'string', allowNull: false, required: false },
+    category: { type: 'number', allowNull: false, required: true }
   },
 
   exits: {
-    redirect: {
-      description: 'Created new item - redirect to item overview',
+    success: {
       responseType: 'redirect'
     }
   },
 
-  // TODO: Link item to a bar or bar to an item
-  fn: async ({inputs}) => {
-    inputs.category = await Category.findOne(inputs.category);
-    await Item.create({inputs});
-    throw { redirect: '/item/index' };
+  fn: async (inputs) => {
+    // TODO: test this
+    // inputs.bar = this.req.session.isOwnerOf
+    inputs.bar = 1;
+    await MenuItem.create(inputs);
+
+    return '/item/index';
   }
 };
