@@ -10,15 +10,15 @@ module.exports = {
   },
 
   exits: {
-    redirect: {
-      description: 'Created new Bar - redirect to category overview',
+    success: {
+      description: 'Deleted category - redirect to category overview',
       responseType: 'redirect'
     }
   },
 
   fn: async ({id}) => {
     await Category.destroyOne({id});
-    // TODO find better way to manage redirect
-    throw { redirect: '/category/index' };
+
+    return '/category/index';
   }
 };

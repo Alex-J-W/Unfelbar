@@ -1,8 +1,8 @@
 module.exports = {
   attributes: {
-    name: { type: 'string', columnType: 'varchar(80)', required: true },
+    name: { type: 'string', columnType: 'varchar(80)', allowNull: false, required: true },
     items: {
-      collection: 'item',
+      collection: 'menuitem',
       via: 'category'
     }
   }
