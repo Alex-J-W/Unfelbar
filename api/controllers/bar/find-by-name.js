@@ -14,6 +14,8 @@ module.exports = {
     }
   },
 
+  // TODO ADD search for nothing
+
   fn: async ({name}) => {
     let bars = await Bar.find({
       name: {

@@ -1,2 +1,44 @@
 <!-- TODO: Add view/routes/controllers for single bar -->
 <!-- TODO: Add button to edit for bar owner -->
+
+<main>
+    <!-- For spacing 'space-between' of main tag -->
+    <div class="unfelbar-dummy"></div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center px-2 w-100">
+    <!-- Search bar -->
+    <form action="/search" class="position-relative w-75">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+        <label class="w-100">
+            <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search" placeholder="Find your bar">
+        </label>
+        <img src="/images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
+    </form>
+    </div>
+
+    <!-- TODO: Add pictures and swipe -->
+    <!-- Top Bierdeckel -->
+    <div class="container-fluid d-flex p-0 m-0 justify-content-around">
+        <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
+                <div class="unfelbar-bierdeckel">
+                    <img src="/images/bars/<%= bar.picture; %>" class="unfelbar-bierdeckel-image" alt="bar_example_1">
+                    <div class="unfelbar-bierdeckel-label">
+                        <h5 class="card-title m-1"><%= bar.name; %></h5>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- Event list of bar -->
+    <div class="container">
+        <p><%= bar.description; %></p>
+    </div>
+
+    <!-- Buttons for routing -->
+    <button class="unfelbar-button">Zurück</button>
+    <button class="unfelbar-button">Favorisieren</button>
+    <button class="unfelbar-button">Menü</button>
+    <button class="unfelbar-button">Events</button>
+    // TODO: add link to route
+    <button class="unfelbar-button">Zur Tour hinzufügen</button>
+</main>

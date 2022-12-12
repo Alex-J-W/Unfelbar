@@ -1,18 +1,16 @@
+const {request} = require('sails/lib/app/configuration/default-hooks');
 module.exports = {
 
-  friendlyName: 'New',
+  friendlyName: 'New bar 1',
 
-  description: 'Show view to create a new bar.',
+  description: 'Show first view to create a new bar.',
 
-  inputs: {
-
-  },
+  inputs: {},
 
   exits: {
     success: {
       viewTemplatePath: 'pages/bar/new'
     },
-
   },
 
   fn: async () => {}
