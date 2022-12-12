@@ -29,7 +29,8 @@
         </div>
     </div>
 
-    <!-- Event list of bar -->
+    <!-- Bar description -->
+    <!-- TODO: add container -->
     <div class="container">
         <p><%= bar.description; %></p>
     </div>
@@ -39,6 +40,5 @@
     <button class="unfelbar-button">Favorisieren</button>
     <button class="unfelbar-button">Menü</button>
     <button class="unfelbar-button">Events</button>
-    // TODO: add link to route
-    <button class="unfelbar-button">Zur Tour hinzufügen</button>
+    <button class="unfelbar-button" onclick="window.location='/tour/add/<%= bar.id ;%>'">Zur Tour hinzufügen</button>
 </main>
