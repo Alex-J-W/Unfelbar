@@ -1,7 +1,10 @@
-
-// TODO add reasonable columns to ticket - references user and bar(?)
+// TODO: fix columnType if error
 module.exports = {
   attributes: {
-    name: {type: 'string', columnType: 'varchar(80)', required: true}
+    eventName: { type: 'string', required: true },
+    eventDate: { type: 'string', columnType: 'date', required: true },
+    price: { type: 'number', required: true },
+    event: { model: 'Barevent', required: true },
+    customer: { model: 'User', required: true},
   },
 };

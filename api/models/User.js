@@ -168,9 +168,36 @@ without necessarily having a billing card.`
     //  ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗
     //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
     //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
-    // TODO: Add unfelbar fields like isBarOwner
 
+    // TODO: Many tickets?
+    // TODO: Add birthday
+    //birthday: {
+    //  type: 'string',
+    //  columnType: 'date',
+    //  required: true,
+    //  description: 'Must be 18 years old'
+    //},
+
+    tickets: {
+      model: 'ticket',
+      required: false
+    },
+
+    barTours: {
+      collection: 'bartour',
+      via: 'customer'
+    },
+
+    favoriteBars: {
+      collection: 'bar'
+    }
   },
 
+  isOwner: {
+    type: 'boolean'
+  },
 
+  isOwnerOf: {
+    model: 'bar'
+  }
 };
