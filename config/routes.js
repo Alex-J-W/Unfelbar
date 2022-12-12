@@ -80,6 +80,10 @@ module.exports.routes = {
   'GET /search':             { action: 'bar/find-by-name' },
   'GET /bar/:id':            { action: 'bar/show'},
 
+  'GET /tour/add/:id':       { action: 'tour/add'},
+  'Get /tour/plan':          { action: 'tour/show-current-tour' },
+  'GET /tour/new':           { action: 'tour/create' },
+
   'GET /event/new':          { action: 'event/create-view'},
 
   // Route that loads the view to create a new category
@@ -95,4 +99,6 @@ module.exports.routes = {
   'GET /item/kill/:id':      { action: 'item/delete' },
   'GET /item/:id':           { action: 'item/show' },
   'GET /item/index':         { action: 'item/find-all' },
+
+
 };
