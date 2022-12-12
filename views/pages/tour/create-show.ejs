@@ -1,0 +1,20 @@
+<main>
+    <div class="container-fluid p-0 m-0">
+        <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
+            <% barTour.forEach((bar) => { %>
+                <div class="unfelbar-bierdeckel">
+                    <img src="/images/bars/<%= bar.picture%>" class="unfelbar-bierdeckel-image" alt="bar_example_1">
+                    <div class="unfelbar-bierdeckel-label">
+                        <h5 class="card-title m-1"><%= bar.name; %></h5>
+                    </div>
+                </div>
+            <p> Followed by: </p>
+            <% }); %>
+                <button class="unfelbar-button">Weitere Bar hinzufügen</button>
+        </div>
+    </div>
+    <!-- TODO add links -->
+    <button class="unfelbar-button">Zurück</button>
+    <button class="unfelbar-button" onclick="window.location='/tour/new'">Speichern</button>
+    <button class="unfelbar-button">Verwerfen</button>
+</main>
