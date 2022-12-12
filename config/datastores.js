@@ -52,11 +52,11 @@ module.exports.datastores = {
     // url: 'mysql://user:password@host:port/database',
     // Test DB!
     adapter: 'sails-mysql',
-    user:'user7_prod',
-    password: 'n100117',
+    user:'user7_test',
+    password: 'n116117',
     port:33061,
     host: '193.196.53.194',
-    database: 'unfelbar_prod'
+    database: 'unfelbar_test'
 
   },
 
