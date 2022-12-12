@@ -18,9 +18,7 @@ module.exports = {
   },
 
   fn: async (inputs) => {
-    // TODO: test this
-    // inputs.bar = this.req.session.isOwnerOf
-    inputs.bar = 1;
+    inputs.bar = this.req.session.isOwnerOf.id;
     await MenuItem.create(inputs);
 
     return '/item/index';
