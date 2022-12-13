@@ -232,6 +232,7 @@ max-width: 120px;
 
 .unfelbar-bierdeckel:hover{
   background-color: #BC6C25;
+  cursor: pointer;
   transition: all 0.4s ease-in;
 }
 
