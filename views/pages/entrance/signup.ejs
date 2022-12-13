@@ -1,3 +1,4 @@
+</main>
 <div id="signup" v-cloak>
   <div class="container-fluid pt-5 pb-5" v-if="!cloudSuccess">
     <h1 class="text-center">Create an account</h1>
@@ -5,7 +6,8 @@
       <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p>
       <hr/>
       <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-errors.sync="formErrors" :form-data="formData" :form-rules="formRules" @submitted="submittedForm()">
-        <div class="form-group">
+          <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+          <div class="form-group">
           <label for="full-name">Full name</label>
           <input class="form-control" id="full-name" type="text"  :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName" placeholder="Sturgis P. Sturgeon" autocomplete="name" focus-first>
           <div class="invalid-feedback" v-if="formErrors.fullName">Please enter your full name.</div>
@@ -48,4 +50,5 @@
     </div>
   </div>
 </div>
+</main>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

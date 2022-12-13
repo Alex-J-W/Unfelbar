@@ -1,3 +1,4 @@
+</main>
 <div id="account-overview" v-cloak>
   <account-notification-banner></account-notification-banner>
   <div class="container pt-5 pb-5">
@@ -94,7 +95,8 @@
       <h5 class="modal-title">Remove Card Info?</h5>
     </div>
     <ajax-form action="updateBillingCard" :syncing.sync="syncingRemoveCard" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedRemoveCardForm()">
-      <div class="modal-body text-center">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+        <div class="modal-body text-center">
         <p>Are you sure you want to remove your {{me.billingCardBrand}} ending in <strong>{{me.billingCardLast4}}</strong>?</p>
         <p class="text-muted mb-0">This may restrict your access to paid features.</p>
         <cloud-error v-if="cloudError"></cloud-error>
@@ -106,4 +108,5 @@
     </ajax-form>
   </modal>
 </div>
+</main>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

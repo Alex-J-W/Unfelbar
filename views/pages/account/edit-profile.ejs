@@ -1,10 +1,12 @@
+</main>
 <div id="edit-profile" v-cloak>
   <account-notification-banner></account-notification-banner>
   <div class="container pt-5 pb-5">
     <h1>Update personal info</h1>
     <hr/>
     <ajax-form action="updateProfile" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
-      <div class="row">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+        <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="full-name">Full name</label>
@@ -35,4 +37,5 @@
     </ajax-form>
   </div>
 </div>
+</main>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
