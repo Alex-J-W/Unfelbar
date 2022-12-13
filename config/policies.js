@@ -10,7 +10,8 @@
 
 module.exports.policies = {
 
-  '*': 'is-logged-in',
+  // Per default: Lock all routes for every user but admin
+  '*': 'is-super-admin',
 
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
@@ -25,33 +26,32 @@ module.exports.policies = {
   // Custom policies for actions
   'dashboard/*': true,
 
-  // TODO: Make logged-bar-user only
-  'bar/create-view': 'is-logged-in',
-  'bar/create-view-2': 'is-logged-in',
-  'bar/create': 'is-logged-in',
-  'bar/create-2': 'is-logged-in',
+  // TODO: Could be removed due to  '*': 'is-super-admin'-rule
+  'bar/create-view': 'is-super-admin',
+  'bar/create-view-2': 'is-super-admin',
+  'bar/create': 'is-super-admin',
+  'bar/create-2': 'is-super-admin',
+
+  'bar/edit': 'is-owner',
 
   'bar/find-all': true,
   'bar/find-by-name': true,
 
-  // TODO: Make all down from here super user only !!!!
-  'admin/category/create-view': true,
-  'admin/category/create': true,
-  'admin/category/delete': true,
-  'admin/category/find': true,
-  // TODO: Make all up from here super user only !!!!
+  // TODO: Could be removed due to  '*': 'is-super-admin'-rule
+  'admin/category/create-view':'is-super-admin',
+  'admin/category/create': 'is-super-admin',
+  'admin/category/delete': 'is-super-admin',
+  'admin/category/find': 'is-owner-or-admin',
 
-  // Todo: change to logged-bar-user
-  'item/create-view': true,
-  'item/create': true,
-
+  'item/create-view': 'is-owner',
+  'item/create': 'is-owner',
 
   'item/find-all': true,
-  'item/show': true,
-  'item/edit': true,
-  'item/update': true,
-  'item/delete': true,
+  'item/show': 'is-owner',
+  'item/edit': 'is-owner',
+  'item/update': 'is-owner',
+  'item/delete': 'is-owner',
 
+  // TODO: future
   'event/create-view': true,
-
 };
