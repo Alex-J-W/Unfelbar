@@ -122,6 +122,9 @@ the account verification message.)`,
       sails.log.info('Skipping new account email verification... (since `verifyEmailAddresses` is disabled)');
     }
 
+    //  ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗
+    //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
+    //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
+    this.req.session.tour = [];
   }
-
 };
