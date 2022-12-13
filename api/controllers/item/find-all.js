@@ -4,15 +4,12 @@ module.exports = {
 
   description: 'Find all items and display them',
 
-  inputs: {
-
-  },
+  inputs: {},
 
   exits: {
     success: {
       viewTemplatePath: 'pages/item/index'
     }
-
   },
 
   fn: async () => {
