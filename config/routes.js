@@ -22,6 +22,7 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'dashboard/view-landing' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
+  'GET /about':              { action: 'dashboard/view-about' },
 
   'GET /faq':                { action: 'view-faq' },
   'GET /legal/terms':        { action: 'legal/view-terms' },

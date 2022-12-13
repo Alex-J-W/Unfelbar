@@ -23,7 +23,7 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
 
   // Custom policies for actions
-  'dashboard/view-landing': true,
+  'dashboard/*': true,
 
   // TODO: Make logged-bar-user only
   'bar/create-view': 'is-logged-in',
