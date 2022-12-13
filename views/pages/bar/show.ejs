@@ -3,23 +3,22 @@
 
 <main>
     <!-- For spacing 'space-between' of main tag -->
-    <div class="unfelbar-dummy"></div>
+    <div class="unfelbar-dummy m-1"></div>
 
     <div class="d-flex flex-column justify-content-center align-items-center px-2 w-100">
     <!-- Search bar -->
     <form action="/search" class="position-relative w-75">
         <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
         <label class="w-100">
-            <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search" placeholder="Find your bar">
+            <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search" placeholder="Find another bar">
         </label>
         <img src="/images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
     </form>
     </div>
 
-    <!-- TODO: Add pictures and swipe -->
     <!-- Top Bierdeckel -->
-    <div class="container-fluid d-flex p-0 m-0 justify-content-around">
-        <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
+    <div class="container-fluid px-2 clearfix">
+        <div class="d-flex justify-content-center float-md-start col-md-5 col-12">
                 <div class="unfelbar-bierdeckel">
                     <img src="/images/bars/<%= bar.picture; %>" class="unfelbar-bierdeckel-image" alt="bar_example_1">
                     <div class="unfelbar-bierdeckel-label">
@@ -27,18 +26,19 @@
                     </div>
                 </div>
         </div>
+        <div class="align-items-center float-md-end col-md-5 col-12 p-3">
+            <p><%= bar.description; %></p>
+        </div>
+        <!--TODO: for release candidate, add opening hours and menu -->
     </div>
 
-    <!-- Bar description -->
-    <!-- TODO: add container -->
-    <div class="container">
-        <p><%= bar.description; %></p>
-    </div>
-
-    <!-- Buttons for routing -->
-    <button class="unfelbar-button">Zurück</button>
-    <button class="unfelbar-button">Favorisieren</button>
-    <button class="unfelbar-button">Menü</button>
-    <button class="unfelbar-button">Events</button>
+<div class="d-flex align-items-center justify-content-around">
+    <button class="unfelbar-button h-100">Favorisieren</button>
     <button class="unfelbar-button" onclick="window.location='/tour/add/<%= bar.id ;%>'">Zur Tour hinzufügen</button>
+</div>
+    <div class="d-flex align-items-center justify-content-around">
+    <button class="unfelbar-button" href="/">Home</button>
+</div>
+    <!-- For spacing 'space-between' of main tag -->
+    <div class="unfelbar-dummy m-1"></div>
 </main>
