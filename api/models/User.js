@@ -184,20 +184,19 @@ without necessarily having a billing card.`
     },
 
     barTours: {
-      collection: 'bartour',
-      via: 'customer'
+      collection: 'bartour'
     },
 
     favoriteBars: {
       collection: 'bar'
+    },
+
+    isOwner: {
+      type: 'boolean'
+    },
+
+    isOwnerOf: {
+      model: 'bar'
     }
   },
-
-  isOwner: {
-    type: 'boolean'
-  },
-
-  isOwnerOf: {
-    model: 'bar'
-  }
 };
