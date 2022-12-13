@@ -74,10 +74,18 @@
       <!-- TOGGLEABLE CONTENT -->
       <a class="unfelbar-nav-item-lg unfelbar-text-hover-dark unfelbar-text-white text-decoration-none" style="font-size: 2rem" href="/about">About</a>
 
+      <div>
+      <!-- TOUR ITEM COUNTER -->
+      <% if (req.me){%>
+        <% if(session.tour.length > 0){%>
+            <p class="text-white"><%=session.tour.length%></p>
+      <% }} %>
+
       <!-- USER ICON -->
       <button class="btn btn-secondary border-0 unfelbar-background-chalk unfelbar-hover" type="button" onclick="window.location='/login'">
           <svg class="unfelbar-icon"  fill="white" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></svg>
       </button>
+      </div>
   </nav>
 
   <!-- TODO add if logged in, show logout button, else login ' <% if(me) { %> ... <% } else { %>  ... <% } %> ' -->
@@ -90,9 +98,14 @@
       </div>
       <div class="offcanvas-body">
           <table class="table position-absolute top-1 start-0 unfelbar-nav-sidebar">
-              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark">Bars</a></td></tr>
-              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark">Mein Bereich</a></tr>
-              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark">About</a></td></tr>
+              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/bars">Bars</a></td></tr>
+              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/meinBereich">Mein Bereich</a></tr>
+              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/about">About</a></td></tr>
+              <% if(req.me){%>
+                  <tr><td class="border-0"><a class="text-decoration-none unfelbar-text-white fs-1 text-uppercase border-bottom unfelbar-text-hover-dark" href="/logout">Logout</a></td></tr>
+              <%} else {%>
+                  <tr><td class="border-0"><a class="text-decoration-none unfelbar-text-white fs-1 text-uppercase border-bottom unfelbar-text-hover-dark" href="/login">Login</a></td></tr>
+              <%} %>
           </table>
       </div>
   </div>
@@ -101,18 +114,16 @@
 
       <%- body %>
 
-
-  <!-- TODO: Fix -->
   <!-- FOOTER  -->
   <footer class="d-flex justify-content-center bg-black unfelbar-text-white unfelbar-shadow-top">
       <div class="nav" purpose="footer-nav">
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/contact">Contact<span class="d-none d-sm-inline"> us</span></a></small>
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/legal/terms">Terms<span class="d-none d-sm-inline"> of use</span></a></small>
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/legal/privacy">Privacy<span class="d-none d-sm-inline"> policy</span></a></small>
+          <p class="py-2">&copy; <%= sails.config.custom.platformCopyrightYear %> <a class="px-sm-3 text-decoration-none text-white" href="/about">PhiLex</a><span class="d-none d-sm-inline">All rights reserved.</span></p>
       </div>
-      <small purpose="footer-copy">Copyright &copy; <%= sails.config.custom.platformCopyrightYear %> <a target="_blank" href="NEW_APP_COMPANY_ABOUT_HREF">Philex</a>. <br class="d-block d-sm-none"/>All rights reserved.</small>
-
-      <h5 class="m-0 align-self-center">Impressum</h5>
+      <div class="nav" purpose="footer-nav">
+          <p><a class="nav-link px-1 px-sm-3 text-decoration-none text-white" href="/contact">Contact<span class="d-none d-sm-inline"> us</span></a></p>
+          <p><a class="nav-link px-1 px-sm-3 text-decoration-none text-white" href="/legal/terms">Terms<span class="d-none d-sm-inline"> of use</span></a></p>
+          <p><a class="nav-link px-1 px-sm-3 text-decoration-none text-white" href="/legal/privacy">Privacy<span class="d-none d-sm-inline"> policy</span></a></p>
+      </div>
   </footer>
 
     <% /*
