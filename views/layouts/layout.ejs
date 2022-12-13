@@ -74,21 +74,22 @@
       <!-- TOGGLEABLE CONTENT -->
       <a class="unfelbar-nav-item-lg unfelbar-text-hover-dark unfelbar-text-white text-decoration-none" style="font-size: 2rem" href="/about">About</a>
 
-      <div>
+      <div class="d-flex justify-content-center align-items-center">
       <!-- TOUR ITEM COUNTER -->
-      <% if (req.me){%>
-        <% if(session.tour.length > 0){%>
-            <p class="text-white"><%=session.tour.length%></p>
+      <% if (req.me){
+         if(session.tour.length > 0){%>
+            <h3 class="text-white my-0 mr-3 text-center"><%=session.tour.length%></h3>
       <% }} %>
 
       <!-- USER ICON -->
-      <button class="btn btn-secondary border-0 unfelbar-background-chalk unfelbar-hover" type="button" onclick="window.location='/login'">
-          <svg class="unfelbar-icon"  fill="white" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></svg>
+      <button class="btn btn-secondary border-0 unfelbar-background-chalk unfelbar-hover" type="button"
+        <% if(req.me){%>onclick="window.location='/account'"<%} else {%>onclick="window.location='/account'"<%}%>>
+        <svg class="unfelbar-icon"  fill="white" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></svg>
       </button>
       </div>
   </nav>
 
-  <!-- TODO add if logged in, show logout button, else login ' <% if(me) { %> ... <% } else { %>  ... <% } %> ' -->
   <!-- SIDEBAR -->
   <div class="offcanvas offcanvas-start bg-black text-center" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
@@ -117,12 +118,12 @@
   <!-- FOOTER  -->
   <footer class="d-flex justify-content-center bg-black unfelbar-text-white unfelbar-shadow-top">
       <div class="nav" purpose="footer-nav">
-          <p class="py-2">&copy; <%= sails.config.custom.platformCopyrightYear %> <a class="px-sm-3 text-decoration-none text-white" href="/about">PhiLex</a><span class="d-none d-sm-inline">All rights reserved.</span></p>
+          <p class="p-0 m-0">&copy; <%= sails.config.custom.platformCopyrightYear %> <a class="px-sm-3 text-decoration-none text-white" href="/about">PhiLex</a><span class="d-none d-md-inline">All rights reserved.</span></p>
       </div>
       <div class="nav" purpose="footer-nav">
-          <p><a class="nav-link px-1 px-sm-3 text-decoration-none text-white" href="/contact">Contact<span class="d-none d-sm-inline"> us</span></a></p>
-          <p><a class="nav-link px-1 px-sm-3 text-decoration-none text-white" href="/legal/terms">Terms<span class="d-none d-sm-inline"> of use</span></a></p>
-          <p><a class="nav-link px-1 px-sm-3 text-decoration-none text-white" href="/legal/privacy">Privacy<span class="d-none d-sm-inline"> policy</span></a></p>
+          <p class="m-0 p-0"><a class="nav-link px-2 text-decoration-none text-white py-0" href="/contact">Contact<span class="d-none d-md-inline"> us</span></a></p>
+          <p class="m-0 p-0"><a class="nav-link px-2 text-decoration-none text-white py-0" href="/legal/terms">Terms<span class="d-none d-md-inline"> of use</span></a></p>
+          <p class="m-0 p-0"><a class="nav-link px-2 text-decoration-none text-white py-0" href="/legal/privacy">Privacy<span class="d-none d-md-inline"> policy</span></a></p>
       </div>
   </footer>
 
