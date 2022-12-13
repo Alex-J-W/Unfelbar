@@ -10,7 +10,7 @@
                 <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search"
                        placeholder="Find your bar">
             </label>
-            <img src="images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
+            <img src="/images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
         </form>
 
         <div class="d-flex justify-content-around w-100 my-2">
@@ -28,9 +28,9 @@
 
     <div class="d-flex flex-wrap justify-content-center">
     <% bars.forEach( (bar) => { %>
-        <div class="p-2 mx-4 my-2 card unfelbar-bg-lightbrown unfelbar-shadow-card " style="width: 18rem;">
-            <img src="/images/bars/bar_example.jpg" class="card-img-top rounded-2" alt="bar_example_1">
-            <div class="d-flex justify-content-center position-absolute top-0 start-50 translate-middle-x p-0 w-75 rounded-bottom text-center card-body unfelbar-bg-lightbrown">
+        <div class="unfelbar-bierdeckel" onclick="window.location='/bar/<%= bar.id%>'">
+            <img src="/images/bars/<%= bar.picture%>" class="card-img-top rounded-2" alt="<%= bar.name%>_picture">
+            <div class="unfelbar-bierdeckel-label">
                 <h5 class="card-title m-1"><%= bar.name; %></h5>
             </div>
         </div>

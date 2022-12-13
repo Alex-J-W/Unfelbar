@@ -12,10 +12,12 @@ module.exports = {
 
   exits: {
     success: {
-      viewTemplatePath: 'pages/bar/show'
+      description: 'Bar was successfully created',
+      responseType: 'redirect'
     },
 
     fileNotUploaded:{
+      description: 'File could not be uploaded',
       responseType: 'redirect'
     }
   },
@@ -38,7 +40,7 @@ module.exports = {
 
       let fname = path.basename(uploadedFiles[0].fd);
 
-      await Bar.create({
+      let bar = await Bar.create({
         'name': session.barCreate.name,
         'address': session.barCreate.address,
         'description': session.barCreate.description,
@@ -46,13 +48,16 @@ module.exports = {
         'picture': fname,
         'owner': session.barCreate.owner,
         'starRating': session.barCreate.starRating
+      }).fetch();
+
+      await User.updateOne({id: session.barCreate.owner}).set({
+        isOwner: 1,
+        isOwnerOf: bar.id
       });
     };
 
     await this.req.file('image').upload(params, callback);
 
-    let bar = await Bar.find({owner: session.owner});
-
-    return {bar};
+    return '/bars';
   }
 };

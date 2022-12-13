@@ -24,8 +24,14 @@ module.exports = {
       maxLength: 255,
       required: true
     },
-    picture: {type: 'string', required: true},
-    owner: { model: 'user', required: true},
+    picture: {
+      type: 'string',
+      required: true
+    },
+    owner: {
+      model: 'user',
+      required: true
+    },
     items: {
       collection: 'menuitem',
       via: 'bar',
