@@ -16,6 +16,7 @@ module.exports.policies = {
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,
+  'account/view-account-overview': 'is-logged-in',
   'view-homepage-or-redirect': true,
   'view-faq': true,
   'view-contact': true,
@@ -36,6 +37,12 @@ module.exports.policies = {
 
   'bar/find-all': true,
   'bar/find-by-name': true,
+  'bar/show': true,
+
+  'tour/add': 'is-logged-in',
+  'tour/remove-position': 'is-logged-in',
+  'tour/show-current-tour': 'is-logged-in',
+  'tour/create': 'is-logged-in',
 
   // TODO: Could be removed due to  '*': 'is-super-admin'-rule
   'admin/category/create-view':'is-super-admin',

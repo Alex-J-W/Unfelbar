@@ -82,6 +82,7 @@ module.exports.routes = {
   'GET /bar/:id':            { action: 'bar/show'},
 
   'GET /tour/add/:id':       { action: 'tour/add'},
+  'GET /tour/remove/:id':    { action: 'tour/remove-position' },
   'Get /tour/plan':          { action: 'tour/show-current-tour' },
   'GET /tour/new':           { action: 'tour/create' },
 

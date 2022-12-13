@@ -1,15 +1,18 @@
 <main>
     <div class="container-fluid p-0 m-0">
         <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
-            <% barTour.forEach((bar) => { %>
-                <div class="unfelbar-bierdeckel">
-                    <img src="/images/bars/<%= bar.picture%>" class="unfelbar-bierdeckel-image" alt="bar_example_1">
+            <% for(let i=0; i<barTour.length; i++){ %>
+            <div class="d-flex flex-column">
+                <div class="unfelbar-bierdeckel" onclick="window.location='/bar/<%= barTour[i].id; %>'">
+                    <img src="/images/bars/<%= barTour[i].picture%>" class="unfelbar-bierdeckel-image" alt="bar_example_1">
                     <div class="unfelbar-bierdeckel-label">
-                        <h5 class="card-title m-1"><%= bar.name; %></h5>
+                        <h5 class="card-title m-1"><%= barTour[i].name; %></h5>
                     </div>
                 </div>
+                <button class="unfelbar-button align-self-center" onclick="window.location='/tour/remove/<%= i %>'">Aus Tour entfernen</button>
+            </div>
             <p> Followed by: </p>
-            <% }); %>
+            <% }; %>
                 <button class="unfelbar-button" onclick="window.location='/bars'">Weitere Bars hinzufügen</button>
         </div>
     </div>
