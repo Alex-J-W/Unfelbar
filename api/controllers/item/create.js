@@ -13,12 +13,13 @@ module.exports = {
 
   exits: {
     success: {
+      description: 'Menu item for specific bar created',
       responseType: 'redirect'
     }
   },
 
-  fn: async (inputs) => {
-    inputs.bar = this.req.session.isOwnerOf.id;
+  fn: async function (inputs) {
+    inputs.bar = this.req.me.isOwnerOf.id;
     await MenuItem.create(inputs);
 
     return '/item/index';
