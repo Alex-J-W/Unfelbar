@@ -18,7 +18,7 @@ module.exports.policies = {
   'account/logout': true,
   'account/view-account-overview': 'is-logged-in',
   'view-homepage-or-redirect': true,
-  'view-faq': true,
+  'view-faq': 'is-super-admin',
   'view-contact': true,
   'legal/view-terms': true,
   'legal/view-privacy': true,

@@ -71,6 +71,7 @@ module.exports.routes = {
   'GET /bar/new-2':          { action: 'bar/create-view-2' },
   'POST /bar/new':           { action: 'bar/create' },
   'POST /bar/new-2':         { action: 'bar/create-2' },
+  'GET /bar/:id/edit':       { action: 'bar/edit' },
   'GET /bars' :              { action: 'bar/find-all' },
   'GET /search':             { action: 'bar/find-by-name' },
   'GET /bar/:id':            { action: 'bar/show'},
@@ -81,6 +82,7 @@ module.exports.routes = {
   'GET /tour/remove/:id':    { action: 'tour/remove-position' },
   'Get /tour/plan':          { action: 'tour/show-current-tour' },
   'GET /tour/create':        { action: 'tour/create' },
+  'GET /tour/clear':         { action: 'tour/clear' },
   'GET /tour/show/:id':      { action: 'tour/show' },
 
   // Routes to handle category actions
