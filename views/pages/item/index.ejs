@@ -12,16 +12,17 @@
         </form>
     </div>
     <div class="d-flex flex-column align-items-center p-2">
+        <%if(data.items[0]){%>
         <table class="table table-striped unfelbar-border rounded unfelbar-table mb-0">
             <thead>
-            <tr>
+            <tr class="border-bottom">
                 <th>Name</th>
                 <th>Preis</th>
                 <th></th>
             </tr>
             </thead>
             <tbody class="table-group-divider">
-            <% items.forEach( (item) => { %>
+            <% data.items.forEach( (item) => { %>
                 <!-- Make clickable only for bar owner -->
                 <tr
                 <% if(req.me){ if(req.me.isOwnerOf === item.bar){ %>
@@ -34,11 +35,14 @@
             <% }); %>
             </tbody>
         </table>
+        <%} else {%>
+        <h1 class="text-center">Die Karte ist noch leer!</h1>
+        <%};%>
     </div>
 <div class="d-flex justify-content-around m-2">
-    <button class="unfelbar-button" onclick="window.location='/bar/<%= items[0].bar; %>'">Zurück</button>
-    <% if(req.me){ if(req.me.isOwnerOf === items[0].bar){ %>
-        <button class="unfelbar-button" onclick="window.location='/item/new'">Hinzufügen</button>
-    <% }} %>
+    <button class="unfelbar-button" onclick="window.location='/bar/<%= data.id; %>'">Zurück</button>
+        <% if(req.me){ if(req.me.isOwnerOf === data.id){ %>
+            <button class="unfelbar-button" onclick="window.location='/item/new'">Hinzufügen</button>
+        <%}}%>
 </div>
 </main>

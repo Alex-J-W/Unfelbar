@@ -7,7 +7,7 @@
     <form action="/search" class="position-relative w-75">
         <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
         <label class="w-100">
-            <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search" placeholder="Find another bar">
+            <input type="text" minlength="0" required name="name" class="form-control unfelbar-border unfelbar-label-search" placeholder="Find another bar">
         </label>
         <img src="/images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
     </form>
@@ -23,22 +23,22 @@
                     </div>
                 </div>
         </div>
-        <div class="align-items-center float-md-end col-md-5 col-12 p-3 unfelbar-border ">
+        <div class="align-items-center float-md-end col-md-5 col-12 p-1 my-1 unfelbar-border rounded">
         <p><%= bar.description; %></p>
         </div>
-        <!--TODO: for release candidate, add opening hours and menu -->
+        <!--TODO: for release: add opening hours and menu to swipe-->
     </div>
 
-<div class="d-flex align-items-center justify-content-around">
+<div class="d-flex align-items-center justify-content-around my-1">
     <button class="unfelbar-button h-100">Favorisieren</button>
     <button class="unfelbar-button" onclick="window.location='/tour/add/<%= bar.id ;%>'">Zur Tour hinzufügen</button>
 </div>
-    <div class="d-flex align-items-center justify-content-around">
+    <div class="d-flex align-items-center justify-content-around my-1 flex-md-column justify-content-md-around">
         <% if(req.me) { if(req.me.isOwnerOf === bar.id){%>
-            <button class="unfelbar-button" onclick="window.location='/bar/edit/<%= bar.id ;%>'">Bar bearbeiten</button>
+            <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id ;%>/edit'">Bar bearbeiten</button>
         <%}}%>
-        <button class="unfelbar-button" onclick="window.location='/bar/<%= bar.id ;%>/items'">Zur Karte</button>
-        <button class="unfelbar-button" href="/">Home</button>
+        <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id ;%>/items'">Zur Karte</button>
+        <button class="unfelbar-button mx-1 my-md-2" href="/">Home</button>
     </div>
     <!-- For spacing 'space-between' of main tag -->
     <div class="unfelbar-dummy m-1"></div>

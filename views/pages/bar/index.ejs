@@ -7,7 +7,7 @@
         <form action="/search" class="position-relative w-75">
             <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
             <label class="w-100">
-                <input type="text" name="name" class="form-control unfelbar-border unfelbar-label-search"
+                <input type="text" minlength="0" required name="name" class="form-control unfelbar-border unfelbar-label-search"
                        placeholder="Find your bar">
             </label>
             <img src="/images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
