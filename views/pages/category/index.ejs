@@ -3,20 +3,15 @@
     <div class="d-flex flex-column justify-content-center h-25">
         <h2 class="align-self-center">Kategorien</h2>
     </div>
-
     <div class="px-2 d-flex flex-column">
         <table class="table">
             <thead>
-            <tr>
-            <th>Name</th>
-            </tr>
+            <tr><th>Name</th></tr>
             </thead>
             <tbody>
             <% cats.forEach((cat) => { %>
                 <tr>
-                    <td>
-                        <%= cat.name %>
-                    </td>
+                    <td><%= cat.name %></td>
                     <td>
                         <button class="unfelbar-button align-self-center" onclick="window.location='/category/kill/<%= cat.id %>'">
                             Delete
@@ -26,9 +21,7 @@
             <% }); %>
             </tbody>
         </table>
-        <button class="unfelbar-button align-self-center" onclick="window.location='/category/new'">
-            Neue Kategorie
-        </button>
+        <button class="unfelbar-button align-self-center" onclick="window.location='/category/new'">Neue Kategorie</button>
     </div>
 </div>
 </div>

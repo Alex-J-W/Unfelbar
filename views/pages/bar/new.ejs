@@ -5,23 +5,24 @@
             <div>
                 <div class="form-group">
                     <label for="name" class="col-form-label-lg">Name</label>
-                    <input type="text" id="name" class="form-control" minlength="3" maxlength="80" name="name" required>
+                    <input type="text" id="name" class="form-control" minlength="3" maxlength="80" pattern="[A-Za-z0-9äöüÄÖÜ\s]{3,80}" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="owner" class="col-form-label-lg">Besitzer email</label>
-                    <input type="email" id="owner" class="form-control" minlength="3" maxlength="80" name="owner" required>
+                    <input type="email" class="form-control" placeholder="Email address" :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" autocomplete="email" focus-first minlength="3" maxlength="80" name="owner" id="owner" required>
+                    <div class="invalid-feedback" v-if="formErrors.emailAddress">Please provide a valid email address.</div>
                 </div>
                 <div class="form-group">
                     <label for="address" class="col-form-label-lg">Adresse</label>
-                    <input type="text" id="address" class="form-control" minlength="3" maxlength="80" name="address" required>
+                    <input type="text" id="address" class="form-control" minlength="3" maxlength="80" pattern="[A-Za-z0-9äöüÄÖÜ\s]{3,80}" name="address" required>
                 </div>
                 <div class="form-group">
                     <label for="description" class="col-form-label-lg">Beschreibung</label>
-                    <input type="text" id="description" maxlength="255" class="form-control" name="description" required>
+                    <input type="text" id="description" maxlength="255" class="form-control" name="description" pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}" required>
                 </div>
                 <div class="form-group">
                     <label for="hours" class="col-form-label-lg">Öffnungszeiten</label>
-                    <input type="text" id="hours" maxlength="255" class="form-control" name="openingHours" required>
+                    <input type="text" id="hours" maxlength="255" class="form-control" pattern="^[0-9\s\:\-]{5,}$" name="openingHours" required>
                 </div>
             </div>
             <button type="submit" class="unfelbar-button mt-4">Bild Hinzufügen</button>

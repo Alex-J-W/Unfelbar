@@ -75,7 +75,8 @@
       <h2 class="modal-title">{{me.hasBillingCard? 'Edit' : 'Add' }} card</h2>
     </div>
     <ajax-form :handle-submitting="handleSubmittingUpdateBillingCard" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedUpdateBillingCard()">
-      <div class="modal-body">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+        <div class="modal-body">
         <div class="form-group">
           <label>Credit card</label>
           <stripe-card-element :stripe-publishable-key="stripePublishableKey" :is-errored.sync="formErrors.newPaymentSource" v-model="formData.newPaymentSource" key="billing-card" ref="billingcardref"></stripe-card-element>
