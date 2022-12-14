@@ -4,16 +4,23 @@ module.exports = {
 
   description: 'Find all items and display them',
 
-  inputs: {},
+  inputs: {
+    id: { type: 'number', required: true },
+  },
 
   exits: {
     success: {
+      description: 'Find items that belong to bar and show',
       viewTemplatePath: 'pages/item/index'
     }
   },
 
-  fn: async () => {
-    let items = await MenuItem.find();
+  fn: async ({id}) => {
+    let items = await MenuItem.find({
+      bar: id
+    });
+
+
     return {items};
   }
 };

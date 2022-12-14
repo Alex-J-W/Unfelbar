@@ -19,9 +19,9 @@ module.exports = {
   },
 
   fn: async function (inputs) {
-    inputs.bar = this.req.me.isOwnerOf.id;
-    await MenuItem.create(inputs);
+    inputs.bar = this.req.me.isOwnerOf;
+    let item = await MenuItem.create(inputs).fetch();
 
-    return '/item/index';
+    return '/bar/' +item.bar+ '/items';
   }
 };

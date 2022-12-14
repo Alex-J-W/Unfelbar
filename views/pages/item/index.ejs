@@ -24,7 +24,8 @@
         <table class="table table-striped unfelbar-border unfelbar-table rounded table-hover mt-0">
             <tbody class="table-group-divider">
             <% items.forEach( (item) => { %>
-                <tr onclick="window.location='/item/<%= item.id;%>';">
+            <!-- Make clickable only for bar owner -->
+                <tr <% if(req.me){ if(req.me.isOwnerOf === item.bar){%> onclick="window.location='/item/<%= item.id;%>';" <%}}%>>
                     <td><%= item.name; %></td>
                     <td><%= item.price; %></td>
                     <!-- Todo: Fix this -->
@@ -33,9 +34,11 @@
             <% }); %>
             </tbody>
         </table>
-
     </div>
 </main>
 <div class="d-flex justify-content-around m-2">
+    <button class="unfelbar-button" onclick="window.location='/bar/<%= items[0].bar;%>'">Zurück</button>
+    <% if(req.me){ if(req.me.isOwnerOf === items[0].bar){%>
     <button class="unfelbar-button" onclick="window.location='/item/new'">Hinzufügen</button>
+    <%}}%>
 </div>

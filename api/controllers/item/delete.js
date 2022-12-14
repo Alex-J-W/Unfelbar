@@ -17,8 +17,8 @@ module.exports = {
   },
 
   fn: async ({id}) => {
-    await MenuItem.destroyOne({id});
-
-    return '/item/index';
+    let item = await MenuItem.destroyOne({id}).fetch();
+    console.log(item)
+    return '/bar/' + item.bar + '/items' ;
   }
 };

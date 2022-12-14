@@ -22,13 +22,13 @@
             </div>
         </div>
         <div class="d-flex justify-content-around mt-4">
-        <button class="unfelbar-button" onclick="window.location='/item/index'">Zurück</button>
+        <button class="unfelbar-button" onclick="window.location='/bar/<%= item.bar ;%>/items'">Zurück</button>
         <button class="unfelbar-button" onclick="window.location='/item/edit/<%= item.id ;%>'">Bearbeiten</button>
         <button class="unfelbar-button" onclick="window.location='/item/kill/<%= item.id ;%>'">Löschen</button>
         </div>
         <%} else { %>
             <h2>No item here</h2>
-                <button class="unfelbar-button" onclick="window.location='/item/index'">Zurück</button>
+                <button class="unfelbar-button" onclick="window.location='/'">Home</button>
             <%}%>
     </div>
 </main>
