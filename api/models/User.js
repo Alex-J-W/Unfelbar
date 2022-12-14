@@ -169,7 +169,6 @@ without necessarily having a billing card.`
     //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
     //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
 
-    // TODO: Many tickets?
     // TODO: Add birthday
     //birthday: {
     //  type: 'string',
@@ -179,8 +178,7 @@ without necessarily having a billing card.`
     //},
 
     tickets: {
-      model: 'ticket',
-      required: false
+      collection: 'ticket'
     },
 
     barTours: {
