@@ -37,8 +37,12 @@
     <button class="unfelbar-button" onclick="window.location='/tour/add/<%= bar.id ;%>'">Zur Tour hinzufügen</button>
 </div>
     <div class="d-flex align-items-center justify-content-around">
-    <button class="unfelbar-button" href="/">Home</button>
-</div>
+        <% if(req.me) { if(req.me.isOwnerOf === bar.id){%>
+            <button class="unfelbar-button" onclick="window.location='/bar/edit/<%= bar.id ;%>'">Bar bearbeiten</button>
+        <%}}%>
+        <button class="unfelbar-button" onclick="window.location='/bar/<%= bar.id ;%>/items'">Zur Karte</button>
+        <button class="unfelbar-button" href="/">Home</button>
+    </div>
     <!-- For spacing 'space-between' of main tag -->
     <div class="unfelbar-dummy m-1"></div>
 </main>
