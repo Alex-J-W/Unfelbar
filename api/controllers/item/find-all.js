@@ -20,7 +20,11 @@ module.exports = {
       bar: id
     });
 
+    let data = {
+      items,
+      id
+    }
 
-    return {items};
+    return {data};
   }
 };
