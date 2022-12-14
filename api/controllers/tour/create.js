@@ -23,6 +23,6 @@ module.exports = {
 
     this.req.session.tour = {};
 
-    return 'tour/show/'+tour.id;
+    return '/tour/show/'+tour.id;
   }
 };
