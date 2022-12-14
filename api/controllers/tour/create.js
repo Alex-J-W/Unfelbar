@@ -9,18 +9,20 @@ module.exports = {
   exits: {
     success: {
       description: 'Bartour stored, redirect to show',
-      viewTemplatePath: 'pages/tour/show'
+      responseType: 'redirect'
     }
   },
 
   fn: async function () {
 
     let tour = await Bartour.create({
-      name: 'Tour vom ' + Date.now(),
+      name: 'Tour ' + Date.now(),
       customer: this.req.me.id,
       barList: this.req.session.tour
     }).fetch();
 
-    return {tour};
+    this.req.session.tour = {};
+
+    return 'tour/show/'+tour.id;
   }
 };

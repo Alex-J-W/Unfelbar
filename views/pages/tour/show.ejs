@@ -1,4 +1,23 @@
 <main>
-    <h2> <%= tour.name%></h2>
-
+    <div class="unfelbar-dummy m-1"></div>
+    <h2 class="text-center"> <%= tourData.name%></h2>
+    <div class="container-fluid p-0 m-0">
+        <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
+            <% for(let i=0; i<tourData.bars.length; i++){ %>
+            <div class="d-flex flex-column">
+                <div class="unfelbar-bierdeckel" onclick="window.location='/bar/<%= tourData.bars[i].id; %>'">
+                    <img src="/images/bars/<%= tourData.bars[i].picture%>" class="unfelbar-bierdeckel-image" alt="<%= tourData.bars[i].name; %>_image">
+                    <div class="unfelbar-bierdeckel-label">
+                        <h5 class="card-title m-1"><%= tourData.bars[i].name; %></h5>
+                    </div>
+                </div>
+            </div>
+            <% if(i < tourData.bars.length -1){%>
+            <p> Followed by: </p>
+            <% }}; %>
+        </div>
+        <button class="unfelbar-button" onclick="window.location='/tour/kill<%= tourData.id%>'">Tour löschen</button>
+        <button class="unfelbar-button" onclick="window.location='/meinBereich'">Mein Bereich</button>
+    </div>
+    <div class="unfelbar-dummy m-1"></div>
 </main>
