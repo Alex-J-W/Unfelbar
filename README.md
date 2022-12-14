@@ -2,8 +2,24 @@
 ~ by PhiLex
 
 ## Features
-* Create a customer account at Unfelbar
-* Sign in as admin and create a bar for a customer
-  * This automatically upgrades their account to an **owner account**
-* Create a **bar tour** by searching for bars and add / remove them from your active planning phase.
-Store the tour in your account to access it at a later point of time.
+* **Create an account for Unfelbar**
+* As a **user**:
+* Create your own personal bar tour and save it for later use
+* Search for Bars
+* Have a great night!
+
+
+* As a bar **owner**:
+  * Contact the support to set up your own bar
+  * Add your own items to your menu for everyone to see
+  * Note: **Only you** can add items to **your bar**
+
+
+* Upcoming features:
+  * Display opening hours for bars
+  * Options for **owners** to promote events
+    * Option for users buy tickets for these events
+  * Search bars by tags
+  * Rate bars
+  * Complete visual overhaul
+
