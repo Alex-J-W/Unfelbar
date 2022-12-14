@@ -43,6 +43,7 @@ module.exports.policies = {
   'tour/remove-position': 'is-logged-in',
   'tour/show-current-tour': 'is-logged-in',
   'tour/create': 'is-logged-in',
+  'tour/show': 'is-logged-in',
 
   // TODO: Could be removed due to  '*': 'is-super-admin'-rule
   'admin/category/create-view':'is-super-admin',

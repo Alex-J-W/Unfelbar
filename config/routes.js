@@ -80,11 +80,13 @@ module.exports.routes = {
   'GET /bars' :              { action: 'bar/find-all' },
   'GET /search':             { action: 'bar/find-by-name' },
   'GET /bar/:id':            { action: 'bar/show'},
+  'GET /bar/:id/items':      { action: 'item/find-all' },
 
   'GET /tour/add/:id':       { action: 'tour/add'},
   'GET /tour/remove/:id':    { action: 'tour/remove-position' },
   'Get /tour/plan':          { action: 'tour/show-current-tour' },
   'GET /tour/new':           { action: 'tour/create' },
+  'GET /tour/show/:id':      { action: 'tour/show' },
 
   'GET /event/new':          { action: 'event/create-view'},
 
@@ -100,7 +102,6 @@ module.exports.routes = {
   'POST /item/edit/:id':     { action: 'item/update' },
   'GET /item/kill/:id':      { action: 'item/delete' },
   'GET /item/:id':           { action: 'item/show' },
-  'GET /item/index':         { action: 'item/find-all' },
 
 
 };

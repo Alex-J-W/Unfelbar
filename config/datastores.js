@@ -57,8 +57,5 @@ module.exports.datastores = {
     port:33061,
     host: '193.196.53.194',
     database: 'unfelbar_test'
-
   },
-
-
 };

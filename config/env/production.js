@@ -62,7 +62,7 @@ module.exports = {
       adapter: 'sails-mysql',
       user:'user7_prod',
       password: 'n100117',
-      port:33061,
+      port: 33061,
       host: '193.196.53.194',
       database: 'unfelbar_prod'
 
@@ -79,8 +79,7 @@ module.exports = {
       ****************************************************************************/
       // ssl: { rejectUnauthorized: true },
 
-    },
-
+    }
   },
 
 
