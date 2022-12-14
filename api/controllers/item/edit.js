@@ -1,31 +1,30 @@
 module.exports = {
 
-  friendlyName: 'Edit menu item',
+  friendlyName: 'Update menu item',
 
-  description: 'Edit specific menu item for a bar.',
+  description: 'Update a existing menu item.',
 
   inputs: {
-    id: { type: 'number', allowNull: false, required: true}
+    id : { type: 'number', allowNull: false, required: true},
+    name : { type: 'string', allowNull: false, required: true },
+    price : { type: 'number', allowNull: false, required: true },
+    description : { type: 'string' },
   },
 
   exits: {
     success: {
-      description: 'Edited a single menu item',
-      viewTemplatePath: 'pages/item/edit'
-    },
-    noSuchItem: {
-      description: 'No such menu item with this ID found',
+      description: 'Updated menu item',
       responseType: 'redirect'
     }
   },
 
-  fn: async ({id}) => {
-    let item = await MenuItem.findOne({id});
+  fn: async (inputs) => {
+    await MenuItem.updateOne({id: inputs.id}).set({
+      name: inputs.name,
+      price: inputs.price,
+      description: inputs.description
+    });
 
-    if(!item){
-      throw { noSuchItem: '/item/index'};
-    }
-
-    return {item};
+    return '/item/'+inputs.id;
   }
 };
