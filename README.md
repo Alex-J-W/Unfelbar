@@ -1,25 +1,32 @@
 # Unfelbar v0.5
 ~ by PhiLex
 
-## Features
-* **Create an account for Unfelbar**
-* As a **user**:
-* Create your own personal bar tour and save it for later use
-* Search for Bars
-* Have a great night!
+## How to use
+* Create a new user account or use an existing one
+  * \<barname>@bar.de with pw bar for active bar owner account
+    * Only endlicht and heimat have items set
+  * tornadodavinci@user.de with pw user for user account
+  * admin@unfelbar.de with pw admin for admin account
+* **Only admins**
+  * can promote a user to a bar owner by creating a new bar with their email address
+  * can create new categories
+* **Only bar owners**
+  * can C(R)UD items for their bar
+* **Only signed users**
+  * Can create bar tours (transaction)
 
-
-* As a bar **owner**:
-  * Contact the support to set up your own bar
-  * Add your own items to your menu for everyone to see
-  * Note: **Only you** can add items to **your bar**
-
-
-* Upcoming features:
-  * Display opening hours for bars
-  * Options for **owners** to promote events
-    * Option for users buy tickets for these events
+## Planned features
+* App
+  * Complete visual overhaul
+  * Add all bars of Constance
+  * Display tour of the month
+* Users
+  * Option for users buy tickets for these events
   * Search bars by tags
   * Rate bars
-  * Complete visual overhaul
-
+* Owners
+  * Create events and "sell" tickets
+  * Edit their bar
+* Bar
+  * Display opening hours for bars
+  * Display description for items
