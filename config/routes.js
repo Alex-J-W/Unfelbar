@@ -10,13 +10,6 @@
 
 module.exports.routes = {
 
-
-
-
-
-
-  'GET /item/show' : {view : 'pages/item/show'},
-
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
@@ -73,6 +66,7 @@ module.exports.routes = {
   //  ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗
   //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
   //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
+  // Routes to handle bar actions
   'GET /bar/new':            { action: 'bar/create-view' },
   'GET /bar/new-2':          { action: 'bar/create-view-2' },
   'POST /bar/new':           { action: 'bar/create' },
@@ -82,26 +76,29 @@ module.exports.routes = {
   'GET /bar/:id':            { action: 'bar/show'},
   'GET /bar/:id/items':      { action: 'item/find-all' },
 
+  // Routes to handle tour actions
   'GET /tour/add/:id':       { action: 'tour/add'},
   'GET /tour/remove/:id':    { action: 'tour/remove-position' },
   'Get /tour/plan':          { action: 'tour/show-current-tour' },
-  'GET /tour/new':           { action: 'tour/create' },
+  'GET /tour/create':        { action: 'tour/create' },
   'GET /tour/show/:id':      { action: 'tour/show' },
 
-  'GET /event/new':          { action: 'event/create-view'},
-
-  // Route that loads the view to create a new category
+  // Routes to handle category actions
   'GET /category/new':       { action: 'admin/category/create-view' },
   'POST /category/new':      { action: 'admin/category/create' },
   'GET /category/index':     { action: 'admin/category/find' },
   'GET /category/kill/:id':  { action: 'admin/category/delete' },
 
+  // Routes to handle menu item actions
   'GET /item/new':           { action: 'item/create-view' },
   'POST /item/new':          { action: 'item/create' },
-  'GET /item/edit/:id':      { action: 'item/edit' },
-  'POST /item/edit/:id':     { action: 'item/update' },
+  'GET /item/edit/:id':      { action: 'item/edit-view' },
+  'POST /item/edit/:id':     { action: 'item/edit' },
   'GET /item/kill/:id':      { action: 'item/delete' },
   'GET /item/:id':           { action: 'item/show' },
 
+  'GET /meinBereich':        { action: 'area/show' },
 
+  // TODO: For release
+  'GET /event/new':          { action: 'event/create-view'},
 };

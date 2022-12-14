@@ -53,12 +53,14 @@ module.exports.policies = {
 
   'item/create-view': 'is-owner',
   'item/create': 'is-owner',
-
-  'item/find-all': true,
-  'item/show': 'is-owner',
+  'item/edit-view': 'is-owner',
   'item/edit': 'is-owner',
-  'item/update': 'is-owner',
   'item/delete': 'is-owner',
+  'item/show': 'is-owner',
+  // TODO: naming
+  'item/find-all': true,
+
+  'area/show': 'is-logged-in',
 
   // TODO: future
   'event/create-view': true,

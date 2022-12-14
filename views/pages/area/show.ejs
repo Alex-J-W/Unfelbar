@@ -1,0 +1,33 @@
+<main>
+    <h1>Mein Bereich</h1>
+    <div class="d-flex flex-column flex-md-row pb-2">
+        <div class="d-flex flex-column col-md-6">
+            <h2>Meine Touren</h2>
+            <% if(data.tours.length === 0){%>
+            <p> Noch keine Tour geplant? Leg jetzt damit los!</p>
+            <%} else {%>
+                <% data.tours.forEach((tour) => {%>
+                    <div class="row" onclick="window.location='/tour/show/<%= tour.id%>'">
+                        <div class="col-8"><%= tour.name ;%></div>
+                    </div>
+                <%});};%>
+            <button class="unfelbar-button" onclick="window.location='/bars'">Jetzt planen!</button>
+        </div>
+        <div class="d-flex flex-column my-5 my-md-0 col-md-6 ">
+            <h2>Meine Tickets</h2>
+            <% if(data.tickets.length === 0){%>
+                <p>Noch kein Event geplant? Hier gehts zur Party!</p>
+            <%} else {%>
+                <% data.tickets.forEach((ticket) => {%>
+                <div class="row" href="/tour/show/<%ticket.id%>">
+                    <div class="col-8"><%= ticket.name ;%></div>
+                </div>
+            <%});};%>
+            <button class="unfelbar-button" onclick="window.location='/tickets'">Events</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-around pt-2 border-top">
+        <button class="unfelbar-button" onclick="window.location='/'">Home</button>
+        <button class="unfelbar-button" onclick="window.location='/account'">Account details</button>
+    </div>
+</main>
