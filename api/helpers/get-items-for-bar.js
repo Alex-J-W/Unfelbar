@@ -1,5 +1,7 @@
-// TODO: receive bar id and return all items belonging to said bar
 module.exports = {
-  fn: async () => {
+
+  fn: async (barId) => {
+    let items = await MenuItem.find( {bar: barId});
+    return items;
   }
 }
