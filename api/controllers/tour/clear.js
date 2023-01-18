@@ -15,8 +15,8 @@ module.exports = {
 
   fn: async function () {
 
-    this.req.session.tour = {}
+    this.req.session.tour = [];
 
-    return '/'
+    return '/';
   }
 };
