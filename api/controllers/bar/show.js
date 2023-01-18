@@ -23,10 +23,13 @@ module.exports = {
 
     let bar = await Bar.findOne(id);
 
+    let tickets = await Barevent.find({bar : bar.id, date: { '>=' : new Date()}});
+
+
     if(!bar){
       throw { barNotFound: '/bars'};
     }
 
-    return {bar};
+    return {bar, tickets};
   }
 };
