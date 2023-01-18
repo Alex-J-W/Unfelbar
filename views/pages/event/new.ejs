@@ -1,4 +1,33 @@
 <main>
-    <h1>Event reate</h1>
-   <h2>Under construction</h2>
+    <h1>Create new event</h1>
+    <div class="container">
+        <form action="/event/new" method="post">
+            <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+
+            <div>
+                <div class="form-group">
+                    <label for="name" class="col-form-label-lg">Name</label>
+                    <input type="text" id="name" class="form-control" minlength="3" maxlength="80" pattern="[A-Za-z0-9äöüÄÖÜ\s]{3,80}" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-form-label-lg">Beschreibung</label>
+                    <input type="text" id="description" maxlength="255" class="form-control" name="description" pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticketVolume" class="col-form-label-lg">Anzahl Tickets</label>
+                    <input type="number" id="ticketVolume" class="form-control" name="ticketVolume" step="1" min="1" max="999999" required>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="col-form-label-lg">Datum</label>
+                    <input type="date" id="date" class="form-control" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-form-label-lg">Preis</label>
+                    <input type="number" id="price" class="form-control" name="price" step=".01" min="0" max="999999" required>
+                </div>
+            </div>
+            <button type="submit" class="unfelbar-button mt-4">Event Hinzufügen</button>
+        </form>
+        <a class="unfelbar-button mt-4" href="/bar/<%= req.me.isOwnerOf%>">Zurück</a>
+    </div>
 </main>
