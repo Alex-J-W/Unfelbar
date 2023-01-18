@@ -21,7 +21,7 @@ module.exports = {
       barList: this.req.session.tour
     }).fetch();
 
-    this.req.session.tour = {};
+    this.req.session.tour = [];
 
     return '/tour/show/'+tour.id;
   }
