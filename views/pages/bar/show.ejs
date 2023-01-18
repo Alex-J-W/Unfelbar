@@ -14,8 +14,8 @@
     </div>
 
     <!-- Top Bierdeckel -->
-    <div class="container-fluid px-2 clearfix">
-        <div class="d-flex justify-content-center float-md-start col-md-5 col-12">
+    <div class="d-flex flex-column flex-md-row justify-content-around px-2" style="max-width: 50%">
+        <div>
                 <div class="unfelbar-bierdeckel">
                     <img src="/images/bars/<%= bar.picture; %>" class="unfelbar-bierdeckel-image" alt="bar_example_1">
                     <div class="unfelbar-bierdeckel-label">
@@ -23,11 +23,53 @@
                     </div>
                 </div>
         </div>
-        <div class="align-items-center float-md-end col-md-5 col-12 p-1 my-1 unfelbar-border rounded">
-        <p><%= bar.description; %></p>
-        </div>
+        <div>
+            <div class="p-1 unfelbar-border rounded mt-2">
+                <h3>Öffnungszeiten</h3>
+                <p><%= bar.openingHours; %></p>
+            </div>
+            <div class="p-1 unfelbar-border rounded mt-2">
+                <h3>Beschreibung</h3>
+                <p><%= bar.description; %></p>
+            </div>
+
+            </div>
         <!--TODO: for release: add opening hours and menu to swipe-->
     </div>
+
+    <% tickets.forEach((ticket) => {%>
+        <div class="container align-self-center">
+            <div class="item w-100 unfelbar-border">
+                <div class="item-right">
+                    <h2 class="num"><%= ticket.date.getDate() ;%></h2>
+                    <p class="day"><%= ticket.date.toLocaleString('default', {month: 'long'}) ;%></p>
+                    <span class="up-border"></span>
+                    <span class="down-border"></span>
+                </div> <!-- end item-right -->
+
+                <div class="item-left">
+                    <p class="event"><%= bar.name ;%> Event</p>
+                    <h2 class="title"><%= ticket.name ;%></h2>
+                    <p class="event"><%= ticket.description;%> Event</p>
+
+                    <div class="sce">
+                        <div class="icon">
+                            <i class="fa fa-money"></i>
+                        </div>
+                        <p><%= ticket.price ;%>€ p.P. Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold ;%> </p>
+                    </div>
+                    <div class="fix"></div>
+                    <div class="loc">
+                        <div class="icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <p><%= bar.address ;%></p>
+                    </div>
+                    <div class="fix"></div>
+                </div> <!-- end item-right -->
+            </div> <!-- end item -->
+        </div>
+    <%});%>
 
 <div class="d-flex align-items-center justify-content-around my-1">
     <button class="unfelbar-button h-100">Favorisieren</button>
@@ -36,6 +78,7 @@
     <div class="d-flex align-items-center justify-content-around my-1 flex-md-column justify-content-md-around">
         <% if(req.me) { if(req.me.isOwnerOf === bar.id){%>
             <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id ;%>/edit'">Bar bearbeiten</button>
+            <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/event/new'">Event erstellen</button>
         <%}}%>
         <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id ;%>/items'">Zur Karte</button>
         <button class="unfelbar-button mx-1 my-md-2" href="/">Home</button>
@@ -43,3 +86,11 @@
     <!-- For spacing 'space-between' of main tag -->
     <div class="unfelbar-dummy m-1"></div>
 </main>
+
+
+<!-- Todo: remove bardeckel on mobile
+ Center text somewhat good
+ implement better shopping buttons
+ take care of meinBereich
+
+ Daten einfüfgen-->
