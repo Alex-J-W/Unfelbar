@@ -77,6 +77,13 @@ module.exports.routes = {
   'GET /bar/:id':            { action: 'bar/show'},
   'GET /bar/:id/items':      { action: 'item/find-all' },
 
+  // Routes to CRUD an event
+  'GET /event/new':          { action: 'event/create-view' },
+  'POST /event/new':         { action: 'event/create' },
+  'GET /event/:id/edit':     { action: 'event/edit-view' },
+  'GET /event/:id':          { action: 'event/show' },
+  'GET /event/:id/ticket':   { action: 'ticket/buy' },
+
   // Routes to handle tour actions
   'GET /tour/add/:id':       { action: 'tour/add'},
   'GET /tour/remove/:id':    { action: 'tour/remove-position' },
@@ -101,6 +108,12 @@ module.exports.routes = {
 
   'GET /meinBereich':        { action: 'area/show' },
 
-  // TODO: For release
-  'GET /event/new':          { action: 'event/create-view'},
+  // ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
+  // ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
+  // ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
+
+  'GET  /api/v1/ticket/find/:id':                        { action: 'ticket/find' },
+  'POST /api/v1/ticket/create':                          { action: 'ticket/create' },
+  'POST /api/v1/event/update-tickets':                   { action: 'event/update-tickets' },
+
 };
