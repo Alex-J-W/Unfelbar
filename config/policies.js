@@ -63,5 +63,12 @@ module.exports.policies = {
   'area/show': 'is-logged-in',
 
   // TODO: future
-  'event/create-view': true,
+  'event/create-view': 'is-owner',
+  'event/create': 'is-owner',
+  'event/edit-view': 'is-owner',
+  'event/show': true,
+  'event/update-tickets': 'is-logged-in',
+
+  'ticket/find': true,
+  'ticket/create': 'is-logged-in',
 };
