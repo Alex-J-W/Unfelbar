@@ -14,7 +14,7 @@ module.exports = async function (req, res, proceed) {
 
   // Then check that this user is a "bar owner".
   if (!req.me.isOwner) {
-    return res.forbidden();
+    return res.forbidden().view("403");
   }//•
 
   // IWMIH, we've got ourselves a "bar owner".

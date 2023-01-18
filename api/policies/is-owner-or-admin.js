@@ -20,7 +20,7 @@ module.exports = async function (req, res, proceed) {
   // Then check that this user is a "super admin" or "owner"
   if (!req.me.isSuperAdmin) {
     if (!req.me.isOwner) {
-      return res.forbidden();
+      return res.forbidden().view("403");
     }
   };
 
