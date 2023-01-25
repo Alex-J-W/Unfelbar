@@ -21,7 +21,6 @@ div.container {
   margin: 18px 8px;
 }
 .container .item {
-  width: 48%;
   float: left;
   padding: 0 20px;
   background: #fff;
@@ -109,11 +108,19 @@ div.container {
 .container .item .booked {background: #3D71E9}
 .container .item .cancel {background: #DF5454}
 .linethrough {text-decoration: line-through}
-@media only screen and (max-width: 1150px) {
+
+.ticket {
+  min-width: 50%;
+}
+
+@media only screen and (max-width: 756px) {
+
+  .container .item-left {
+    border-left: none;
+  }
+
   .container .item {
     width: 100%;
     margin-right: 20px
-  }
-  div.container {
   }
 }

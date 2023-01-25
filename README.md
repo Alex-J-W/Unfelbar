@@ -1,6 +1,27 @@
 # Unfelbar v0.5
 ~ by PhiLex
 
+## What did we want to archieve
+We had the idea to build a web application where a user could plan a personalized
+pub crawl in Constance. Owners of bars can promote their bars and events on our platform
+
+## How to use Unfelbar.de
+### For Admins
+* Admins on our page are regular users with the power to create a bar. In order
+to create a bar, the admin has to fill out a form and link an existing user within the
+form to the bar he creates.
+  * Special admin routes:
+    * Routes related to create a new bar (/bar/new)
+    * Category related routes
+### For Bar owners
+* A bar owner is at the beginning a regular user which gets promoted to become a bar owner by an admin.
+After getting connected to a bar, the owner has the ability to add items to his menu or
+create events for his bar. A owner can (right now) only own one bar.
+  * Special owner routes:
+    * Item C(r)UD related routes
+    * Event C(rud) related routes
+### For regular users
+
 ## How to use
 * Create a new user account or use an existing one
   * \<barname>@bar.de with pw bar for active bar owner account

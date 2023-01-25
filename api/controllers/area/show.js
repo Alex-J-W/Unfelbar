@@ -18,10 +18,10 @@ module.exports = {
 
     let customer = this.req.me.id;
 
-    let tours = await Bartour.find({customer})
-    let tickets = await Ticket.find({customer})
+    let tours = await Bartour.find({customer});
+    let tickets = await Ticket.find({customer});
 
-    let data = {tours, tickets}
+    let data = {tours, tickets};
 
     return {data};
 

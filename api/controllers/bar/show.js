@@ -25,6 +25,9 @@ module.exports = {
 
     let tickets = await Barevent.find({bar : bar.id, date: { '>=' : new Date()}});
 
+    let ticketsArray = [];
+    tickets.forEach((ticket) => ticketsArray.push(ticket));
+
 
     if(!bar){
       throw { barNotFound: '/bars'};

@@ -5,7 +5,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center px-2 w-100">
         <!-- Search bar -->
         <form action="/search" class="position-relative w-75">
-            <input type="hidden" name="_csrf" value="<%= _csrf ;%>"/>
+            <input type="hidden" name="_csrf" value="<%= _csrf; %>"/>
             <label class="w-100">
                 <input type="text" minlength="0" required name="name" pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}"
                        class="form-control unfelbar-border unfelbar-label-search" placeholder="Find another bar">
@@ -18,29 +18,30 @@
     <div class="container align-self-center">
         <div class="item w-100">
             <div class="item-right">
-                <h2 class="num"><%= ticket.date.getDate() ;%></h2>
-                <p class="day"><%= ticket.date.toLocaleString('default', {month: 'long'}) ;%></p>
+                <h2 class="num"><%= ticket.date.getDate(); %></h2>
+                <p class="day"><%= ticket.date.toLocaleString('default', {month: 'long'}); %></p>
                 <span class="up-border"></span>
                 <span class="down-border"></span>
             </div> <!-- end item-right -->
 
             <div class="item-left">
-                <p class="event"><%= ticket.bar.name ;%> Event</p>
-                <h2 class="title"><%= ticket.name ;%></h2>
-                <p class="event"><%= ticket.description;%> Event</p>
+                <p class="event"><%= ticket.bar.name; %> Event</p>
+                <h2 class="title"><%= ticket.name; %></h2>
+                <p class="event"><%= ticket.description; %> Event</p>
 
                 <div class="sce">
                     <div class="icon">
                         <i class="fa fa-money"></i>
                     </div>
-                    <p><%= ticket.price ;%>€ p.P. <br></br>Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold ;%> </p>
+                    <p><%= ticket.price; %>€ p.P. <br></br>Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold; %>
+                    </p>
                 </div>
                 <div class="fix"></div>
                 <div class="loc">
                     <div class="icon">
                         <i class="fa fa-map-marker"></i>
                     </div>
-                    <p><%= ticket.bar.address ;%></p>
+                    <p><%= ticket.bar.address; %></p>
                 </div>
                 <div class="fix"></div>
             </div> <!-- end item-right -->
@@ -48,34 +49,36 @@
     </div>
 
     <div class="event">
-        <p id="bar" style="display: none"><%= ticket.id ;%></p>
+        <p id="bar" style="display: none"><%= ticket.id; %></p>
     </div>
 
     <%- exposeLocalsToBrowser(); %>
     <div class="event" id="ticketapp">
-        <div class="ticketCounter">
-            <div @click="decTicket">-</div>
+        <div class="ticketCounter d-flex justify-content-center flex-column align-items-center" style="font-size: 2rem">
+            <div class="addTickets d-flex">
+            <button @click="decTicket" class="mx-1 mr-3 rounded-circle bg-light" style="width: 48px">-</button>
             {{ currentTicketCount }}
-            <div @click="incTicket">+</div>
-            <div :currentCount="currentTicketCount" :price="barEvent.price" @click="ticketProceed">
-                        <span @click="click()">
-        <span v-if="currentTicketCount == 0">0 Tickets</span>
-        <span v-if="currentTicketCount == 1">1 Ticket: {{ barEvent.price }}€</span>
-        <span v-if="currentTicketCount > 1">{{currentTicketCount}} Tickets: {{ currentTicketCount * barEvent.price }}€</span>
-    </span>
+            <button @click="incTicket" class="ml-1 mr-3 rounded-circle bg-light" style="width: 48px">+</button>
+                <div :currentCount="currentTicketCount" :price="barEvent.price" @click="ticketProceed" style="min-width: 200px">
+                    <span @click="click()" v-if="currentTicketCount == 0"> Tickets </span>
+                    <button @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount == 1" > Ticket: {{ barEvent.price }} € </button>
+                    <button @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount > 1" > Tickets: {{ currentTicketCount * barEvent.price }} € </button>
+                </div>
             </div>
-        </div>
+                <div v-if="ticketsSelected" style="font-size: 2rem">
+                    <p>Für nur 10€ pro Ticket, können Sie ihr Ticket versichern.</p>
+                    <button>Versicherung hinzufügen</button>
+                    <button @click="submitTickets" class="ml-1 mr-3 bg-light pl-2 pr-2">Kostenpflichtig bestellen</button>
+                </div>
+            </div>
 
-        <div v-if="ticketsSelected">
-            Ticket versichern? <input type="checkbox">
-            <p>Für nur 10€ pro Ticket, können Sie ihr Ticket versichern.</p>
-            <div @click="submitTickets">Kostenpflichtig bestellen</div>
-        </div>
+
         <!-- Todo: fill with stuff -->
         <div v-if="transactionSucc">
             <p>Thanks for your order!</p>
             <p> {{ barEvent.bar.name }} - {{ barEvent.name }}</p>
-            <p> {{ currentTicketCount }} * {{ barEvent.price }} = {{ currentTicketCount*barEvent.price }}€</p>
+            <p v-if="insured">yes</p>
+            <p> {{ currentTicketCount }} * {{ barEvent.price }} <p v-if="insured"> + Insurance</p> = {{ currentTicketCount*barEvent.price + currentTicketCount*barEvent.insurePrice}}€</p>
 
         </div>
     </div>

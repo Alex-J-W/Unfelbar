@@ -1,4 +1,4 @@
-parasails.registerPage("ticketapp", {
+parasails.registerPage('ticketapp', {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
@@ -15,7 +15,7 @@ parasails.registerPage("ticketapp", {
     insured: false,
     insurePrice: 10,
 
-    transactionSucc:  false,
+    transactionSucc: false,
 
   },
 
@@ -24,12 +24,13 @@ parasails.registerPage("ticketapp", {
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═
 
   // TODO: think whats needed here
-  mounted: async function (){
+  mounted: async function () {
 
   },
-  beforeMount: async function (){
+  beforeMount: async function () {
 
-    this.barEvent = await this.getTicket(window.origin + '/api/v1/ticket/find/' + parseInt($('#bar').text()));;
+    this.barEvent = await this.getTicket(window.origin + '/api/v1/ticket/find/' + parseInt($('#bar').text()));
+
     this.ticketsLeft = this.barEvent.ticketVolume - this.barEvent.ticketsSold;
   },
 
@@ -44,43 +45,58 @@ parasails.registerPage("ticketapp", {
 
       await fetch(url)
         .then(res => res.json())
-        .then(function (data){
+        .then(function (data) {
           barEvent = data.ticket;
         });
-
-      console.log("getTicket result", barEvent);
       return barEvent;
     },
     incTicket: function () {
       // Cannot go buy more tickets than available
-      if(this.currentTicketCount < this.ticketsLeft){
+      if (this.currentTicketCount < this.ticketsLeft) {
         this.currentTicketCount++;
         this.calcPrice();
       }
     },
     decTicket: function () {
       // Cannot go below 0 Tickets
-      if (this.currentTicketCount > 0){
+      if (this.currentTicketCount > 0) {
         this.currentTicketCount--;
         this.calcPrice();
       }
     },
-    calcPrice: function (){
-      this.currentPrice = this.barEvent.price * this.currentTicketCount;
+    calcPrice: function () {
+
+      if (this.insured) {
+        this.currentPrice = this.barEvent.price * this.currentTicketCount + this.currentTicketCount * this.insurePrice;
+      } else {
+        this.currentPrice = this.barEvent.price * this.currentTicketCount;
+      }
     },
-    click: function (){
-      if(this.currentTicketCount > 0){
+    click: function () {
+      if (this.currentTicketCount > 0) {
         this.ticketsSelected = true;
       }
-      },
-    ticketProceed: function (){},
-    submitTickets: function (){
+    },
+    isInsured: function () {
+
+      if (!this.insured) {
+        this.insured = true;
+      } else {
+        this.insured = false;
+      }
+
+      this.calcPrice();
+
+    },
+    ticketProceed: function () {
+    },
+    submitTickets: function () {
 
       // Calculate first "unused" ticket number
       let ticketNumber = this.barEvent.ticketsSold + 1;
 
       // Loops over each bought ticket to write it into DB
-      for (let i = 0; i < this.currentTicketCount; i++){
+      for (let i = 0; i < this.currentTicketCount; i++) {
 
         // Build data object for database that is send to controller via api
         const formData = {
@@ -94,7 +110,7 @@ parasails.registerPage("ticketapp", {
 
         // Create function that calls given route with said body
         const postForm = (body) => {
-          return fetch(window.origin + '/api/v1/ticket/create',{
+          return fetch(window.origin + '/api/v1/ticket/create', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -104,7 +120,7 @@ parasails.registerPage("ticketapp", {
         };
 
         postForm(body)
-          .then(res =>  console.log("Created new ticket", res));
+          .then(res => console.log('Created new ticket', res));
 
         ticketNumber++;
       }
@@ -129,7 +145,7 @@ parasails.registerPage("ticketapp", {
 
       // Create function that calls given route with said body
       const postForm = (body) => {
-        return fetch(window.origin + '/api/v1/event/update-tickets',{
+        return fetch(window.origin + '/api/v1/event/update-tickets', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -139,7 +155,7 @@ parasails.registerPage("ticketapp", {
       };
 
       postForm(body)
-        .then(res =>  console.log("Updated Barevent ticketsSold", res));
+        .then(res => console.log("Updated Barevent ticketsSold", res));
     }
   },
 });

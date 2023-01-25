@@ -65,16 +65,16 @@
       </button>
 
       <!-- TOGGLEABLE CONTENT -->
-      <a class="unfelbar-nav-item-lg unfelbar-text-hover-dark unfelbar-text-white text-decoration-none" style="font-size: 2rem" href="/bars">Bars</a>
+      <a class="d-none d-md-block unfelbar-text-hover-dark unfelbar-text-white text-decoration-none" style="font-size: 2rem" href="/bars">Bars</a>
 
       <!-- LOGO -->
       <a class="unfelbar-nav-icon" href="/">
-          <img class="d-none d-md-block main-logo" src="/images/icons/Logo_Unfelbar_DESKTOP.png" width="80px" alt="logo" class="side-logo">
-          <img class="d-block d-md-none main-logo" src="/images/icons/logo_mobile.png" width="80px" alt="logo" class="side-logo">
+          <img class="d-none d-md-block main-logo" src="/images/icons/Logo_Unfelbar_DESKTOP.webp" width="80px" alt="logo" class="side-logo">
+          <img class="d-block d-md-none main-logo" src="/images/icons/logo_mobile.webp" width="80px" alt="logo" class="side-logo">
       </a>
 
       <!-- TOGGLEABLE CONTENT -->
-      <a class="unfelbar-nav-item-lg unfelbar-text-hover-dark unfelbar-text-white text-decoration-none" style="font-size: 2rem" href="/about">About</a>
+      <a class="d-none d-md-block unfelbar-text-hover-dark unfelbar-text-white text-decoration-none" style="font-size: 2rem" href="/about">About</a>
 
       <div class="d-flex justify-content-center align-items-center">
       <!-- TOUR ITEM COUNTER -->
@@ -86,7 +86,7 @@
 
       <!-- USER ICON -->
       <button class="btn btn-secondary border-0 unfelbar-background-chalk unfelbar-hover" type="button"
-        <% if(req.me){%>onclick="window.location='/account'"<%} else {%>onclick="window.location='/meinBereich'"<%}%>>
+        <% if(req.me){%>onclick="window.location='/meinBereich'"<%} else {%>onclick="window.location='/login'"<%}%>>
         <svg class="unfelbar-icon"  fill="white" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></svg>
       </button>
@@ -97,8 +97,8 @@
   <div class="offcanvas offcanvas-start bg-black text-center" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
           <div class="mx-3"></div>
-          <img class="d-none d-md-block" src="/images/icons/Logo_Unfelbar_DESKTOP.png" width="150px" alt="logo" class="side-logo">
-          <img class="d-block d-md-none" src="/images/icons/logo_mobile.png" width="150px" alt="logo" class="side-logo">
+          <img class="d-none d-md-block" src="/images/icons/Logo_Unfelbar_DESKTOP.webp" width="150px" alt="logo" class="side-logo">
+          <img class="d-block d-md-none" src="/images/icons/logo_mobile.webp" width="150px" alt="logo" class="side-logo">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
