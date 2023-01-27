@@ -28,7 +28,7 @@ module.exports = {
 
     const path = require('path');
     const params = {
-      dirname: path.resolve(sails.config.appPath, 'assets/images/bars/')
+      dirname: path.resolve(sails.config.appPath, '.tmp/public/images/bars/')
     };
 
     let callback = async (err, uploadedFiles) => {
