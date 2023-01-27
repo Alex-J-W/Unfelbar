@@ -54,26 +54,26 @@
         <!-- Big tickets -->
     <div class="container-fluid p-0 mt-1 d-none d-lg-block">
         <div class="d-flex flex-column flex-nowrap" style="overflow-x: auto;">
-            <% tickets.forEach((ticket) => { %>
-                <div class="container ticket align-self-center d-flex w-100" style="min-height: 320px" <%%> onclick='window.location="/event/<%= ticket.id%>"'>
+            <% barevents.forEach((e) => { %>
+                <div class="container ticket align-self-center d-flex w-100" style="min-height: 320px;" onclick='window.location=<%if(req.me){%>"/event/<%= e.id%>"<%}else{%>"/login"<%}%>'>
                     <div class="item ticket unfelbar-border">
                         <div class="item-right">
-                            <h2 class="num"><%= ticket.date.getDate(); %></h2>
-                            <p class="day"><%= ticket.date.toLocaleString('default', {month: 'long'}); %></p>
+                            <h2 class="num"><%= e.date.getDate(); %></h2>
+                            <p class="day"><%= e.date.toLocaleString('default', {month: 'long'}); %></p>
                             <span class="up-border d-none d-md-block"></span>
                             <span class="down-border d-none d-md-block"></span>
                         </div>
                         <!-- end item-right -->
 
                         <div class="item-left">
-                            <h2 class="title"><%= ticket.name; %></h2>
-                            <p class="event"><%= ticket.description; %></p>
+                            <h2 class="title"><%= e.name; %></h2>
+                            <p class="event"><%= e.description; %></p>
 
                             <div class="sce d-none d-md-block">
                                 <div class="icon d-none d-md-block">
                                     <i class="fa fa-money d-none d-md-block"></i>
                                 </div>
-                                <p><%= ticket.price; %>€ p.P. | Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold; %> </p>
+                                <p><%= e.price; %>€ p.P. | Verfügbar: <%= e.ticketVolume - e.ticketsSold; %> </p>
                             </div>
                             <div class="fix d-none d-md-block"></div>
                             <div class="loc d-none d-md-block">
@@ -92,13 +92,13 @@
         <!-- Small tickets -->
     <div class="container-fluid p-0 mt-1 d-md-none">
         <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;" >
-            <% tickets.forEach((ticket) => { %>
-                <div class="unfelbar-bierdeckel " style="height: 200px" <%if(req.me) {%>  onclick="window.location='/event/<%= ticket.id%>' <%}%>">
+            <% barevents.forEach((e) => { %>
+                <div class="unfelbar-bierdeckel " style="height: 200px" onclick='window.location=<%if(req.me){%>"/event/<%= e.id%>"<%}else{%>"/login"<%}%>'>
                     <div class="">
-                        <h5 class="card-title m-1"><%= ticket.name; %></h5>
-                        <p class="m-1">Date: <%= ticket.date.getDate(); %> <%= ticket.date.toLocaleString('default', {month: 'long'}); %></p>
-                        <p class="m-1">Price: <%= ticket.price; %>€ p.P.</p>
-                        <p class="m-1">Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold; %></p>
+                        <h5 class="card-title m-1"><%= e.name; %></h5>
+                        <p class="m-1">Date: <%= e.date.getDate(); %> <%= e.date.toLocaleString('default', {month: 'long'}); %></p>
+                        <p class="m-1">Price: <%= e.price; %>€ p.P.</p>
+                        <p class="m-1">Verfügbar: <%= e.ticketVolume - e.ticketsSold; %></p>
                         <br>
                         <p class="m-1 text-center">Get your Ticket now!</p>
                     </div>
