@@ -2,19 +2,6 @@
     <!-- For spacing 'space-between' of main tag -->
     <div class="unfelbar-dummy m-1"></div>
 
-    <div class="d-flex flex-column justify-content-center align-items-center px-2 w-100">
-        <!-- Search bar -->
-        <form action="/search" class="position-relative w-75">
-            <input type="hidden" name="_csrf" value="<%= _csrf; %>"/>
-            <label class="w-100">
-                <input type="text" minlength="0" required name="name" pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}"
-                       class="form-control unfelbar-border unfelbar-label-search" placeholder="Find another bar">
-            </label>
-            <img src="/images/icons/search.svg" alt="search_icon"
-                 class="position-absolute top-50 end-0 translate-middle-y mx-2">
-        </form>
-    </div>
-
     <div class="container align-self-center">
         <div class="item w-100">
             <div class="item-right">
