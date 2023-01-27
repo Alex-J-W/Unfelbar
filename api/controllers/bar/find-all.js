@@ -13,7 +13,6 @@ module.exports = {
   },
 
   fn: async () => {
-    // TODO Make object with categories
     let bars = await sails.helpers.getAllBars();
     return {bars};
   }
