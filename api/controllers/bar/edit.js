@@ -6,19 +6,26 @@ module.exports = {
 
   inputs: {
     id: { type: 'number', required: true },
+    openingHours: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    address: { type: 'string', required: true }
   },
 
   exits: {
     success: {
       description: 'Bar edited successfully',
-      viewTemplatePath: 'pages/bar/edit'
+      responseType: 'redirect'
     }
   },
 
-  fn: async function ({id}) {
+  fn: async function (inputs) {
 
-    let bar = await Bar.find(id);
+    let id = await Bar.updateOne({id: inputs.id}).set({
+      openingHours: inputs.openingHours,
+      description: inputs.description,
+      address: inputs.address
+    });
 
-    return {id};
+    return '/bar/' + id;
   }
 };
