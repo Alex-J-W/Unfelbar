@@ -86,7 +86,9 @@
 
       <!-- USER ICON -->
       <button class="btn btn-secondary border-0 unfelbar-background-chalk unfelbar-hover" type="button"
-        <% if(req.me){%>onclick="window.location='/meinBereich'"<%} else {%>onclick="window.location='/login'"<%}%>>
+        <% if(req.me){%>
+            <% if(req.me.isSuperAdmin){%>onclick="window.location='/admin/panel'"<%}%>
+              onclick="window.location='/meinBereich'"<%} else {%>onclick="window.location='/login'"<%}%>>
         <svg class="unfelbar-icon"  fill="white" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></svg>
       </button>
@@ -103,8 +105,11 @@
       </div>
       <div class="offcanvas-body">
           <table class="table position-absolute top-1 start-0 unfelbar-nav-sidebar">
-              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/bars">Bars</a></td></tr>
-              <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/meinBereich">Mein Bereich</a></tr>
+              <%if(req.me.isSuperAdmin){%>
+                  <tr><td class="border-0"><a class="text-decoration-none unfelbar-text-white fs-1 text-uppercase border-bottom unfelbar-text-hover-dark" href="/admin/panel">Admin</a></td></tr>
+              <%}%>
+                  <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/meinBereich">Mein Bereich</a></tr>
+                  <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/bars">Bars</a></td></tr>
               <tr><td class="border-0"><a class="unfelbar-text-white fs-1 text-decoration-none text-uppercase border-bottom unfelbar-text-hover-dark" href="/about">About</a></td></tr>
               <% if(req.me){%>
                   <tr><td class="border-0"><a class="text-decoration-none unfelbar-text-white fs-1 text-uppercase border-bottom unfelbar-text-hover-dark" href="/logout">Logout</a></td></tr>
