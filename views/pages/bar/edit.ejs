@@ -20,6 +20,7 @@
                 <label for="address" class="col-form-label-lg">Adresse</label>
                 <input type="text" id="address" value="<%= bar.address%>" class="form-control" minlength="3" maxlength="80" pattern="[A-Za-z0-9äöüÄÖÜ\s]{3,80}" name="address">
             </div>
+            <button type="submit" class="unfelbar-button">Speichern</button>
         </form>
         <p>In order to get a new name, picture or change the owner, please contact an admin</p>
         <button class="unfelbar-button" onclick="window.location='/bar/kill/<%= bar.id ;%>'">Löschen</button>
