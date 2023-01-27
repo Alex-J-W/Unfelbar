@@ -1,6 +1,28 @@
-<!-- TODO: Add view/routes/controllers for bar edit. Only allowed  -->
 <main>
-    <h1>Edit Bar</h1>
-    <h3>Under construction</h3>
+    <div class="d-flex flex-column justify-content-center h-25">
+        <h2 class="align-self-center"><%= bar.name%> bearbeiten</h2>
+    </div>
+    <div class="d-flex flex-column align-items-center p-2 h-100">
+        <form action="/bar/<%= bar.id ;%>/edit" method="post">
+            <input type="hidden" name="_csrf" value="<%= _csrf ;%>"/>
+
+            <div class="form-group">
+                <label for="hours" class="col-form-label-lg">Öffnungszeiten</label>
+                <input type="text" id="hours" value="<%= bar.openingHours%>" maxlength="255" class="form-control" pattern="^[0-9\s\:\-]{5,}$" name="openingHours">
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-form-label-lg">Beschreibung</label>
+                <input type="text" id="description" value="<%= bar.description %>" maxlength="255" class="form-control" name="description" pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}">
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="col-form-label-lg">Adresse</label>
+                <input type="text" id="address" value="<%= bar.address%>" class="form-control" minlength="3" maxlength="80" pattern="[A-Za-z0-9äöüÄÖÜ\s]{3,80}" name="address">
+            </div>
+        </form>
+        <p>In order to get a new name, picture or change the owner, please contact an admin</p>
+        <button class="unfelbar-button" onclick="window.location='/bar/kill/<%= bar.id ;%>'">Löschen</button>
+        <button class="unfelbar-button" onclick="window.location='/bar/<%= bar.id ;%>'">Zurück</button>
+    </div>
 </main>
-<!-- TODO !!!! -->

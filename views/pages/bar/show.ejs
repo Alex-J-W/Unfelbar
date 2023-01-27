@@ -4,15 +4,15 @@
 
     <div class="d-flex flex-column justify-content-center align-items-center px-2 w-100">
         <!-- Search bar -->
-        <form action="/search" class="position-relative w-75">
-            <input type="hidden" name="_csrf" value="<%= _csrf ;%>"/>
-            <label class="w-100">
-                <input type="text" minlength="0" required name="name" pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}"
-                       class="form-control unfelbar-border unfelbar-label-search" placeholder="Find another bar">
-            </label>
-            <img src="/images/icons/search.svg" alt="search_icon"
-                 class="position-absolute top-50 end-0 translate-middle-y mx-2">
-        </form>
+        <div class="d-flex flex-column justify-content-center align-items-center px-2 w-100">
+            <form action="/search" class="position-relative w-75">
+                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+                <label class="w-100">
+                    <input type="text" minlength="0" required pattern="[A-Za-z0-9äöüÄÖÜ\s]{1,}" name="name" class="form-control unfelbar-border unfelbar-label-search" placeholder="Find your bar">
+                </label>
+                <img src="/images/icons/search.svg" alt="search_icon" class="position-absolute top-50 end-0 translate-middle-y mx-2">
+            </form>
+        </div>
     </div>
 
     <!-- Top Bierdeckel -->
@@ -37,14 +37,25 @@
             </div>
 
         </div>
-        <!--TODO: for release: add opening hours and menu to swipe-->
     </div>
 
+    <div class="d-flex align-items-center justify-content-around my-1 overflow-scroll">
+        <button class="unfelbar-button" onclick="window.location='/tour/add/<%= bar.id; %>'">Zur Tour hinzufügen</button>
+        <% if(req.me) { if(req.me.isOwnerOf === bar.id){ %>
+            <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id; %>/edit'">Bar
+                bearbeiten
+            </button>
+            <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/event/new'">Event erstellen</button>
+        <% }} %>
+        <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id; %>/items'">Zur Karte
+        </button>
+    </div>
 
+        <!-- Big tickets -->
     <div class="container-fluid p-0 mt-1 d-none d-lg-block">
         <div class="d-flex flex-column flex-nowrap" style="overflow-x: auto;">
             <% tickets.forEach((ticket) => { %>
-                <div class="container ticket align-self-center d-flex w-100" style="min-height: 320px" onclick='window.location="/event/<%= ticket.id%>"'>
+                <div class="container ticket align-self-center d-flex w-100" style="min-height: 320px" <%%> onclick='window.location="/event/<%= ticket.id%>"'>
                     <div class="item ticket unfelbar-border">
                         <div class="item-right">
                             <h2 class="num"><%= ticket.date.getDate(); %></h2>
@@ -55,7 +66,6 @@
                         <!-- end item-right -->
 
                         <div class="item-left">
-                            <p class="event"><%= bar.name; %> Event</p>
                             <h2 class="title"><%= ticket.name; %></h2>
                             <p class="event"><%= ticket.description; %></p>
 
@@ -72,20 +82,18 @@
                                 </div>
                                 <p><%= bar.address; %></p>
                             </div>
-                            <div class="fix d-none d-md-block"></div>
-                        </div> <!-- end item-right -->
-                    </div> <!-- end item -->
+                        </div>
+                    </div>
                 </div>
-
             <% }); %>
         </div>
     </div>
 
+        <!-- Small tickets -->
     <div class="container-fluid p-0 mt-1 d-md-none">
         <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;" >
-
             <% tickets.forEach((ticket) => { %>
-                <div class="unfelbar-bierdeckel " style="height: 200px" onclick="window.location='/event/<%= ticket.id%>'">
+                <div class="unfelbar-bierdeckel " style="height: 200px" <%if(req.me) {%>  onclick="window.location='/event/<%= ticket.id%>' <%}%>">
                     <div class="">
                         <h5 class="card-title m-1"><%= ticket.name; %></h5>
                         <p class="m-1">Date: <%= ticket.date.getDate(); %> <%= ticket.date.toLocaleString('default', {month: 'long'}); %></p>
@@ -99,19 +107,6 @@
         </div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-around my-1">
-        <button class="unfelbar-button mx-1 my-md-2">Favorisieren</button>
-        <button class="unfelbar-button" onclick="window.location='/tour/add/<%= bar.id; %>'">Zur Tour hinzufügen</button>
-        <% if(req.me) { if(req.me.isOwnerOf === bar.id){ %>
-            <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id; %>/edit'">Bar
-                bearbeiten
-            </button>
-            <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/event/new'">Event erstellen</button>
-        <% }} %>
-        <button class="unfelbar-button mx-1 my-md-2" onclick="window.location='/bar/<%= bar.id; %>/items'">Zur Karte
-        </button>
-        <button class="unfelbar-button mx-1 my-md-2" href="/">Home</button>
-    </div>
     <!-- For spacing 'space-between' of main tag -->
     <div class="unfelbar-dummy m-1"></div>
 </main>
