@@ -2,7 +2,7 @@ module.exports = {
 
   friendlyName: 'Find bars',
 
-  description: 'Finds bars with keyword',
+  description: 'Finds bars with name fragment',
 
   inputs: {
     name: { type: 'string', required: true }
@@ -13,8 +13,6 @@ module.exports = {
       viewTemplatePath: 'pages/bar/index'
     }
   },
-
-  // TODO ADD search for nothing
 
   fn: async ({name}) => {
     let bars = await Bar.find({
