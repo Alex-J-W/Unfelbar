@@ -17,8 +17,12 @@ module.exports = {
       description: 'Created new Bar',
       responseType: 'redirect'
     },
-    userNotFound:{
+    userNotFound: {
       description: 'No user with given email was found',
+      responseType: 'redirect'
+    },
+    alreadyOwner: {
+      description: 'User is already connected to a bar',
       responseType: 'redirect'
     }
   },
@@ -28,10 +32,14 @@ module.exports = {
     const session = this.req.session;
     this.req.session.barCreate = {};
 
-    let owner = await User.findOne({ emailAddress: inputs.owner });
+    let user = await User.findOne({ emailAddress: inputs.owner });
 
-    if (!owner){
+    if (!user){
       throw { userNotFound: '/bar/new' };
+    }
+
+    if(user.isOwner){
+      throw { alreadyOwner: '/bar/new' };
     }
 
     // Store values in session
@@ -39,7 +47,7 @@ module.exports = {
     session.barCreate.address = inputs.address;
     session.barCreate.description = inputs.description;
     session.barCreate.openingHours = inputs.openingHours;
-    session.barCreate.owner = owner.id;
+    session.barCreate.owner = user.id;
     session.barCreate.starRating = null;
 
     return '/bar/new-2';
