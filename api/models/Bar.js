@@ -1,4 +1,3 @@
-// TODO for final release, make all fields required!
 module.exports = {
   attributes: {
     name: {
@@ -18,7 +17,6 @@ module.exports = {
       maxLength: 255,
       required: true
     },
-    // TODO: Make entity / json / list
     openingHours: {
       type: 'string',
       maxLength: 255,
