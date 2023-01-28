@@ -1,6 +1,7 @@
 <main>
     <div class="unfelbar-dummy m-1"></div>
     <h2 class="text-center"> <%= tourData.name%></h2>
+
     <div class="container-fluid p-0 m-0">
         <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
             <% for(let i=0; i<tourData.bars.length; i++){ %>
@@ -13,11 +14,23 @@
                 </div>
             </div>
             <% if(i < tourData.bars.length -1){%>
-            <p> Followed by: </p>
             <% }}; %>
         </div>
-        <button class="unfelbar-button" onclick="window.location='/tour/kill<%= tourData.id%>'">Tour löschen</button>
-        <button class="unfelbar-button" onclick="window.location='/meinBereich'">Mein Bereich</button>
+        <div class="d-flex justify-content-center align-items-center">
+        <button class="unfelbar-button mx-2" onclick="window.location='/tour/kill<%= tourData.id%>'">Tour löschen</button>
+        <button class="unfelbar-button mx-2" onclick="window.location='/meinBereich'">Zurück</button>
+        </div>
     </div>
     <div class="unfelbar-dummy m-1"></div>
+
+    <form action="/tour/edit" method="post">
+        <input type="hidden" name="_csrf" value="<%= _csrf ;%>"/>
+        <input type="hidden" name="id" value="<%= tourData.id%>">
+        <div class="d-flex flex-column p-2 h-100 align-items-start">
+            <label for="tourName" class="col-form-label-lg">Neuer Name</label>
+            <input type="text" id="itemName" class="unfelbar-input" minlength="2" maxlength="80" pattern="[A-Za-z0-9äöüÄÖÜ\s]{2,80}"
+                   name="name" value="<%= tourData.name ;%>" required>
+            <button type="submit" class="unfelbar-button">Name ändern</button>
+        </div>
+    </form>
 </main>
