@@ -14,8 +14,13 @@
                 <tr>
                     <td><%= cat.name %></td>
                     <td>
-                        <button class="unfelbar-button align-self-center" onclick="window.location='/category/edit/<%= cat.id %>'">
+                        <button class="unfelbar-button align-self-center mx-2" onclick="window.location='/category/edit/<%= cat.id %>'">
                             Update
+                        </button>
+                    </td>
+                    <td>
+                        <button class="unfelbar-button align-self-center mx-2" onclick="window.location='/category/kill/<%= cat.id %>'">
+                            Delete
                         </button>
                     </td>
                 </tr>
