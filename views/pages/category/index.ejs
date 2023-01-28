@@ -1,9 +1,6 @@
 <main>
     <div class="h-100">
-    <div class="d-flex flex-column justify-content-center h-25">
         <h2 class="align-self-center">Kategorien</h2>
-    </div>
-    <div class="px-2 d-flex flex-column">
         <table class="table">
             <thead>
             <tr><th>Name</th><th>Actions</th></tr>
@@ -14,13 +11,11 @@
                 <tr>
                     <td><%= cat.name %></td>
                     <td>
-                        <button class="unfelbar-button align-self-center mx-2" onclick="window.location='/category/edit/<%= cat.id %>'">
-                            Update
+                        <button class="p-1 unfelbar-background-chalk unfelbar-text-brown" onclick="window.location='/category/edit/<%= cat.id %>'">Update
                         </button>
                     </td>
                     <td>
-                        <button class="unfelbar-button align-self-center mx-2" onclick="window.location='/category/kill/<%= cat.id %>'">
-                            Delete
+                        <button class="p-1 unfelbar-background-chalk unfelbar-text-brown" onclick="window.location='/category/kill/<%= cat.id %>'">Delete
                         </button>
                     </td>
                 </tr>
@@ -29,6 +24,5 @@
         </table>
         <button class="unfelbar-button align-self-center" onclick="window.location='/category/new'">Neue Kategorie</button>
     </div>
-</div>
 </div>
 </main>
