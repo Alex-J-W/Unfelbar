@@ -66,7 +66,7 @@ module.exports.policies = {
   'event/create-view':              'is-owner',
   'event/create':                   'is-owner',
   'event/edit-view':                'is-owner',
-  'event/show':                     true,
+  'event/show':                     'is-logged-in',
   'event/update-tickets':           'is-logged-in',
   //-------------------------------------------------------------------
 
