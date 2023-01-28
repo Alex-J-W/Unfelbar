@@ -6,20 +6,20 @@ parasails.registerPage('ticketapp', {
 
   data: {
 
+    // Variables to show elements
+    isNew: true,
+    ticketsSelected: false,
+    insured: false,
+    showFinal: false,
+    isLoading: false,
+    transactionSucc: false,
+
+    // Variables that calculate pricing
     barEvent: {},
     ticketsLeft: null,
     currentTicketCount: 0,
     currentPrice: 0,
-
-    isNew: true,
-    ticketsSelected: false,
-    isLoading: false,
-    insured: false,
     insurePrice: 10,
-
-    transactionSucc: false,
-    showFinal: false,
-
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
