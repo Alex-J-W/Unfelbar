@@ -20,8 +20,7 @@ module.exports = {
       required: false
     },
     category: {
-      model: 'category',
-      required: true
+      model: 'category'
     },
     bar: {
       model: 'bar',
