@@ -63,33 +63,40 @@
     <%- exposeLocalsToBrowser(); %>
     <div class="event" id="ticketapp">
         <div class="ticketCounter d-flex justify-content-center flex-column align-items-center" style="font-size: 2rem">
-            <div class="addTickets d-flex flex-column align-items-center">
+            <div v-if="isNew" class="addTickets d-flex flex-column align-items-center">
                 <div class="d-flex">
-            <button @click="decTicket" class="mx-1 mr-3 rounded-circle bg-light" style="width: 48px">-</button>
-            {{ currentTicketCount }}
-            <button @click="incTicket" class="ml-1 mr-3 rounded-circle bg-light" style="width: 48px">+</button>
+                    <button @click="decTicket" class="mx-1 mr-3 rounded-circle unfelbar-background-chalk unfelbar-text-brown" style="width: 48px">-</button>
+                        {{ currentTicketCount }}
+                    <button @click="incTicket" class="ml-1 mr-3 rounded-circle unfelbar-background-chalk unfelbar-text-brown ml-3" style="width: 48px">+</button>
                 </div>
-                <div :currentCount="currentTicketCount" :price="barEvent.price" @click="ticketProceed" style="min-width: 200px">
-                    <span @click="click()" v-if="currentTicketCount == 0"> Tickets </span>
-                    <button @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount == 1" > Ticket: {{ barEvent.price }} € </button>
-                    <button @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount > 1" > Tickets: {{ currentTicketCount * barEvent.price }} € </button>
-                </div>
-            </div>
-                <div v-if="ticketsSelected" style="font-size: 2rem">
-                    <p>Für nur 10€ pro Ticket, können Sie ihr Ticket versichern.</p>
-                    <button>Versicherung hinzufügen</button>
-                    <button @click="submitTickets" class="ml-1 mr-3 bg-light pl-2 pr-2">Kostenpflichtig bestellen</button>
+                <div :currentCount="currentTicketCount" :price="barEvent.price" @click="ticketProceed" style="min-width: 200px" class="d-flex justify-content-center">
+                    <button class="m-3 px-2 unfelbar-background-chalk unfelbar-text-brown" @click="click()" v-if="currentTicketCount == 0"> Tickets: 0€ </button>
+                    <button class="m-3 px-2 text-center unfelbar-background-chalk unfelbar-text-brown" @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount == 1" > Ticket: {{ barEvent.price }} € </button>
+                    <button class="m-3 px-2 text-center unfelbar-background-chalk unfelbar-text-brown" @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount > 1" > Tickets: {{ currentTicketCount * barEvent.price }} € </button>
                 </div>
             </div>
+            <div v-if="ticketsSelected" style="font-size: 2rem" class="d-flex flex-column justify-content-center align-items-center">
+                <p>Für nur 10€ pro Ticket, können Sie ihr Ticket versichern.</p>
+                <button id="insure" @click="isInsured" class="unfelbar-background-chalk text-success text-danger px-2 my-2">Versicherung hinzufügen</button>
+                <button @click="showPrice" class="ml-1 mr-3 bg-light px-2 unfelbar-background-chalk unfelbar-text-brown">Preis anzeigen</button>
+            </div>
+            <div v-if="showFinal" style="font-size: 2rem" class="d-flex flex-column justify-content-center align-items-center">{{ currentPrice }} €
+                <button @click="submitTickets" class="ml-1 mr-3 bg-light px-2 unfelbar-background-chalk unfelbar-text-brown">Kostenpflichtig bestellen</button>
+            </div>
+        </div>
 
+        <div v-if="isLoading" class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-info"  role="status">
+                <span class="visually-hidden">Processing...</span>
+            </div>
+        </div>
 
-        <!-- Todo: fill with stuff -->
-        <div v-if="transactionSucc">
+        <div v-if="transactionSucc" class="d-flex flex-column justify-content-center align-items-center">
             <p>Thanks for your order!</p>
-            <p> {{ barEvent.bar.name }} - {{ barEvent.name }}</p>
-            <p v-if="insured">yes</p>
-            <p> {{ currentTicketCount }} * {{ barEvent.price }} <p v-if="insured"> + Insurance</p> = {{ currentTicketCount*barEvent.price + currentTicketCount*barEvent.insurePrice}}€</p>
-
+            <p> {{ barEvent.bar.name }}</p>
+            <p> {{ barEvent.name }}</p>
+            <p>Insurance:  <span v-if="insured">Yes</span><span v-else>No</span></p>
+            <p>Preis: {{ currentPrice }} €</p>
         </div>
     </div>
 
