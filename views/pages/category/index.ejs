@@ -6,15 +6,16 @@
     <div class="px-2 d-flex flex-column">
         <table class="table">
             <thead>
-            <tr><th>Name</th></tr>
+            <tr><th>Name</th><th>Actions</th></tr>
             </thead>
             <tbody>
+            <!-- Meow! -->
             <% cats.forEach((cat) => { %>
                 <tr>
                     <td><%= cat.name %></td>
                     <td>
-                        <button class="unfelbar-button align-self-center" onclick="window.location='/category/kill/<%= cat.id %>'">
-                            Delete
+                        <button class="unfelbar-button align-self-center" onclick="window.location='/category/edit/<%= cat.id %>'">
+                            Update
                         </button>
                     </td>
                 </tr>
