@@ -22,6 +22,7 @@ module.exports = {
 
     let tour = await Bartour.findOne(id).populate('barList');
 
+    // Only tour owners can see their own tour
     if (!tour.customer === this.req.me.id){
       throw { notOwnerOfTour: '/' };
     }
@@ -30,7 +31,7 @@ module.exports = {
       id: tour.id,
       name: tour.name,
       bars: tour.barList,
-    }
+    };
 
     return {tourData};
   }
