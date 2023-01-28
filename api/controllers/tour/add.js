@@ -17,6 +17,7 @@ module.exports = {
 
   fn: async function ({id}) {
 
+    // Push the ID of a bar into the tour array
     this.req.session.tour.push(id);
 
     return '/tour/plan';
