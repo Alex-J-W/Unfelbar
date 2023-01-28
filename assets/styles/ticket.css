@@ -32,7 +32,7 @@ div.container {
   padding: 20px
 }
 .container .item-right {
-  padding: 79px 50px;
+  padding: 50px 50px;
   margin-right: 20px;
   width: 25%;
   position: relative;
@@ -123,4 +123,15 @@ div.container {
     width: 100%;
     margin-right: 20px
   }
+}
+
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ticket {
+  max-width: 90%;
 }
