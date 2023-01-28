@@ -11,8 +11,7 @@ module.exports = {
   },
 
   fn: async () => {
-    // TODO: filter for only 6 bars
-    let bars = await sails.helpers.getAllBars();
+    let bars = await Bar.find().limit(7);
     return {bars};
   }
 };
