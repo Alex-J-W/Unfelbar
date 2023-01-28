@@ -25,3 +25,105 @@
     </div>
 </main>
 
+
+<main>
+    <!-- For spacing 'space-between' of main tag -->
+    <div class="unfelbar-dummy m-1"></div>
+
+    <!-- Big ticket -->
+    <div class="container-fluid p-0 mt-1 d-none d-lg-block">
+        <div class="d-flex flex-column flex-nowrap" style="overflow-x: auto;">
+            <div class="container ticket align-self-center d-flex w-100" style="min-height: 320px;">
+                <div class="item ticket unfelbar-border">
+                    <div class="item-right">
+                        <h2 class="num"><%= ticket.date.getDate(); %></h2>
+                        <p class="day"><%= ticket.date.toLocaleString('default', {month: 'long'}); %></p>
+                        <span class="up-border d-none d-md-block"></span>
+                        <span class="down-border d-none d-md-block"></span>
+                    </div>
+                    <!-- end item-right -->
+
+                    <div class="item-left">
+                        <h2 class="title"><%= ticket.name; %></h2>
+                        <p class="event"><%= ticket.description; %></p>
+
+                        <div class="sce d-none d-md-block">
+                            <div class="icon d-none d-md-block">
+                                <i class="fa fa-money d-none d-md-block"></i>
+                            </div>
+                            <p><%= ticket.price; %>€ p.P. | Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold; %> </p>
+                        </div>
+                        <div class="fix d-none d-md-block"></div>
+                        <div class="loc d-none d-md-block">
+                            <div class="icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <p><%= ticket.bar.address; %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small tickets -->
+    <div class="container-fluid p-0 mt-1 d-md-none">
+        <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;" >
+            <div class="unfelbar-bierdeckel " style="height: 200px">
+                <div class="">
+                    <h5 class="card-title m-1"> <%= ticket.name; %> </h5>
+                    <p class="m-1">Date: <%= ticket.date.getDate(); %> <%= ticket.date.toLocaleString('default', {month: 'long'}); %></p>
+                    <p class="m-1">Price: <%= ticket.price; %>€ p.P.</p>
+                    <p class="m-1">Verfügbar: <%= ticket.ticketVolume - ticket.ticketsSold; %></p>
+                    <br>
+                    <p class="text-center">Get your Ticket now!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event">
+        <p id="bar" style="display: none"><%= ticket.id; %></p>
+    </div>
+
+    <% if(ticket.ticketVolume - ticket.ticketsSold > 0) { %>
+
+        <%- exposeLocalsToBrowser(); %>
+        <div class="event" id="ticketapp">
+            <div class="ticketCounter d-flex justify-content-center flex-column align-items-center" style="font-size: 2rem">
+                <div class="addTickets d-flex">
+                    <button @click="decTicket" class="mx-1 mr-3 rounded-circle bg-light" style="width: 48px">-</button>
+                    {{ currentTicketCount }}
+                    <button @click="incTicket" class="ml-1 mr-3 rounded-circle bg-light" style="width: 48px">+</button>
+                    <div :currentCount="currentTicketCount" :price="barEvent.price" @click="ticketProceed" style="min-width: 200px">
+                        <span @click="click()" v-if="currentTicketCount == 0"> Tickets </span>
+                        <button @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount == 1" > Ticket: {{ barEvent.price }} € </button>
+                        <button @click="click()" class="ml-1 mr-3 bg-light pl-2 pr-2" v-if="currentTicketCount > 1" > Tickets: {{ currentTicketCount * barEvent.price }} € </button>
+                    </div>
+                </div>
+                <div v-if="ticketsSelected" style="font-size: 2rem">
+                    <p>Für nur 10€ pro Ticket, können Sie ihr Ticket versichern.</p>
+                    <button>Versicherung hinzufügen</button>
+                    <button @click="submitTickets" class="ml-1 mr-3 bg-light pl-2 pr-2">Kostenpflichtig bestellen</button>
+                </div>
+            </div>
+
+
+            <!-- Todo: fill with stuff -->
+            <div v-if="transactionSucc">
+                <p>Thanks for your order!</p>
+                <p> {{ barEvent.bar.name }} - {{ barEvent.name }}</p>
+                <p v-if="insured">yes</p>
+                <p> {{ currentTicketCount }} * {{ barEvent.price }} <p v-if="insured"> + Insurance</p> = {{ currentTicketCount*barEvent.price + currentTicketCount*barEvent.insurePrice}}€</p>
+
+            </div>
+        </div>
+
+    <%} else {%>
+        <h3 class="text-center">Leider ausverkauft</h3>
+    <%}%>
+
+
+    <!-- For spacing 'space-between' of main tag -->
+    <div class="unfelbar-dummy m-1"></div>
+</main>
