@@ -110,7 +110,7 @@ div.container {
 .linethrough {text-decoration: line-through}
 
 .ticket {
-  min-width: 50%;
+  min-width: 1000px;
 }
 
 @media only screen and (max-width: 756px) {
@@ -133,5 +133,5 @@ div.container {
 }
 
 .ticket {
-  max-width: 90%;
+  width: 100px;
 }
