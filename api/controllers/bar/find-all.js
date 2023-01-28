@@ -13,7 +13,7 @@ module.exports = {
   },
 
   fn: async () => {
-    let bars = await sails.helpers.getAllBars();
+    let bars = await Bar.find();
     return {bars};
   }
 };
