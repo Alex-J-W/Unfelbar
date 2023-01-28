@@ -11,11 +11,14 @@ parasails.registerPage('ticketapp', {
     currentTicketCount: 0,
     currentPrice: 0,
 
+    isNew: true,
     ticketsSelected: false,
+    isLoading: false,
     insured: false,
     insurePrice: 10,
 
     transactionSucc: false,
+    showFinal: false,
 
   },
 
@@ -23,7 +26,6 @@ parasails.registerPage('ticketapp', {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═
 
-  // TODO: think whats needed here
   mounted: async function () {
 
   },
@@ -39,6 +41,7 @@ parasails.registerPage('ticketapp', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
+    // Ajax call here
     getTicket: async function (url) {
 
       let barEvent;
@@ -50,6 +53,8 @@ parasails.registerPage('ticketapp', {
         });
       return barEvent;
     },
+
+    // Increment ticket count and calculate price
     incTicket: function () {
       // Cannot go buy more tickets than available
       if (this.currentTicketCount < this.ticketsLeft) {
@@ -57,6 +62,8 @@ parasails.registerPage('ticketapp', {
         this.calcPrice();
       }
     },
+
+    // Decrement ticket count and calculate price
     decTicket: function () {
       // Cannot go below 0 Tickets
       if (this.currentTicketCount > 0) {
@@ -64,6 +71,8 @@ parasails.registerPage('ticketapp', {
         this.calcPrice();
       }
     },
+
+    // Calculate current price based on selected values
     calcPrice: function () {
 
       if (this.insured) {
@@ -72,25 +81,38 @@ parasails.registerPage('ticketapp', {
         this.currentPrice = this.barEvent.price * this.currentTicketCount;
       }
     },
+
+
     click: function () {
       if (this.currentTicketCount > 0) {
         this.ticketsSelected = true;
       }
     },
+
+
     isInsured: function () {
+
+      let button = $('#insure');
 
       if (!this.insured) {
         this.insured = true;
+        button.removeClass("text-danger");
+        button.addClass(".text-success");
       } else {
         this.insured = false;
+        button.removeClass(".text-success");
+        button.addClass("text-danger");
       }
-
       this.calcPrice();
+    },
+
+    showPrice: function () {
+      this.showFinal = true;
 
     },
     ticketProceed: function () {
     },
-    submitTickets: function () {
+    submitTickets: async function () {
 
       // Calculate first "unused" ticket number
       let ticketNumber = this.barEvent.ticketsSold + 1;
@@ -125,13 +147,20 @@ parasails.registerPage('ticketapp', {
         ticketNumber++;
       }
 
-      this.updateBareventModel(this.currentTicketCount)
+      await this.updateBareventModel(this.currentTicketCount)
         .then(res => console.log(res));
 
-      // TODO: DO this only if call was susccess
+      this.isNew = false;
       this.ticketsSelected = false;
-      this.insured = false;
-      this.transactionSucc = true;
+      this.showFinal = false;
+      this.isLoading = true;
+
+      setTimeout(function (){
+        this.isLoading = false;
+        this.transactionSucc = true;
+      }.bind(this),3000);
+
+
     },
     updateBareventModel: async function (amountTicketsBought) {
 
