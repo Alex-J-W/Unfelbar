@@ -1,16 +1,10 @@
 module.exports = {
 
-
   friendlyName: 'Panel view',
-
 
   description: '',
 
-
-  inputs: {
-
-  },
-
+  inputs: {},
 
   exits: {
     success: {
@@ -19,13 +13,5 @@ module.exports = {
     }
   },
 
-
-  fn: async function (inputs) {
-
-    // All done.
-    return;
-
-  }
-
-
+  fn: async function (inputs) {}
 };
