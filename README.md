@@ -25,7 +25,7 @@ create events for his bar. A owner can (right now) only own one bar.
 ## How to use
 * Create a new user account or use an existing one
   * \<barname>@bar.de with pw bar for active bar owner account
-    * Only endlicht and heimat have items set
+    * Only Endlicht and Heimat have items set
   * tornadodavinci@user.de with pw user for user account
   * admin@unfelbar.de with pw admin for admin account
 * **Only admins**
@@ -42,12 +42,12 @@ create events for his bar. A owner can (right now) only own one bar.
   * Add all bars of Constance
   * Display tour of the month
 * Users
-  * Option for users buy tickets for these events
+  * ~~Option for users buy tickets for these events~~
   * Search bars by tags
   * Rate bars
 * Owners
-  * Create events and "sell" tickets
-  * Edit their bar
+  * ~~Create events and "sell" tickets~~
+  * ~~Edit their bar~~
 * Bar
-  * Display opening hours for bars
+  * ~~Display opening hours for bars~~
   * Display description for items
