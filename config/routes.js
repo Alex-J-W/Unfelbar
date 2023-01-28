@@ -73,7 +73,6 @@ module.exports.routes = {
 
   'GET /bar/:id/edit':       { action: 'bar/edit-view' },
   'POST /bar/:id/edit:':     { action: 'bar/edit' },
-  'GET /bar/kill/:id':       { action: 'bar/kill' },
   'GET /bars' :              { action: 'bar/find-all' },
   'GET /search':             { action: 'bar/find-by-name' },
   'GET /bar/:id':            { action: 'bar/show'},
