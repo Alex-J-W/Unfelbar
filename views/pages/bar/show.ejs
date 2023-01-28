@@ -51,6 +51,8 @@
         </button>
     </div>
 
+    <h3 class="text-center my-2">Events</h3>
+
         <!-- Big tickets -->
     <div class="container-fluid p-0 mt-1 d-none d-lg-block">
         <div class="d-flex flex-column flex-nowrap" style="overflow-x: auto;">
@@ -90,17 +92,19 @@
     </div>
 
         <!-- Small tickets -->
-    <div class="container-fluid p-0 mt-1 d-md-none">
+    <div class="container-fluid p-0 mt-1 d-lg-none">
         <div class="d-flex flex-row flex-nowrap" style="overflow-x: auto;" >
             <% barevents.forEach((e) => { %>
                 <div class="unfelbar-bierdeckel " style="height: 200px" onclick='window.location=<%if(req.me){%>"/event/<%= e.id%>"<%}else{%>"/login"<%}%>'>
                     <div class="">
-                        <h5 class="card-title m-1"><%= e.name; %></h5>
+                        <% if(e.name.length <= 15){%>
+                            <h5 class="card-title m-1"> <%= e.name; %> </h5> <%} else {%>
+                            <h5 class="card-title m-1"> <%= e.name.slice(0,15) %> ...</h5> <%}%>
                         <p class="m-1">Date: <%= e.date.getDate(); %> <%= e.date.toLocaleString('default', {month: 'long'}); %></p>
                         <p class="m-1">Price: <%= e.price; %>€ p.P.</p>
                         <p class="m-1">Verfügbar: <%= e.ticketVolume - e.ticketsSold; %></p>
                         <br>
-                        <p class="m-1 text-center">Get your Ticket now!</p>
+                        <p class="text-center">Get your Ticket now!</p>
                     </div>
                 </div>
             <% }); %>
