@@ -13,8 +13,8 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-
   // Default routes by Sails
+
   'GET /':                   { action: 'dashboard/view-landing' },
   'GET /about':              { action: 'dashboard/view-about' },
 
@@ -65,24 +65,29 @@ module.exports.routes = {
   //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
   // Routes created by PhiLex
 
-  // Routes for first transaction with both views
+  // Routes to handle bar related actions
   'GET /bar/new':            { action: 'bar/create-view' },
   'POST /bar/new':           { action: 'bar/create' },
   'GET /bar/new-2':          { action: 'bar/create-view-2' },
   'POST /bar/new-2':         { action: 'bar/create-2' },
 
-  // Routes to handle bar related actions
-  'GET /bar/:id/edit':       { action: 'bar/edit' },
+  'GET /bar/:id/edit':       { action: 'bar/edit-view' },
+  'POST /bar/:id/edit:':     { action: 'bar/edit' },
+  'GET /bar/kill/:id':       { action: 'bar/kill' },
   'GET /bars' :              { action: 'bar/find-all' },
   'GET /search':             { action: 'bar/find-by-name' },
   'GET /bar/:id':            { action: 'bar/show'},
   'GET /bar/:id/items':      { action: 'item/find-all' },
+  //-------------------------------------------------------------------
 
   // Routes to handle categories - Categories are needed to map items to in a menu for a bar
   'GET /category/new':       { action: 'admin/category/create-view' },
   'POST /category/new':      { action: 'admin/category/create' },
-  'GET /category/index':     { action: 'admin/category/find' },
+  'GET /category/edit/:id':  { action: 'admin/category/edit-view' },
+  'POST /category/edit':     { action: 'admin/category/edit' },
   'GET /category/kill/:id':  { action: 'admin/category/delete' },
+  'GET /category/index':     { action: 'admin/category/find' },
+  //-------------------------------------------------------------------
 
   // Routes to handle menu items - Each bar owner can add own unique items to his/her bar
   'GET /item/new':           { action: 'item/create-view' },
@@ -91,23 +96,31 @@ module.exports.routes = {
   'POST /item/edit/:id':     { action: 'item/edit' },
   'GET /item/kill/:id':      { action: 'item/delete' },
   'GET /item/:id':           { action: 'item/show' },
+  //-------------------------------------------------------------------
 
   // Routes to create an event - an event (Barevent) is unique to a single bar and can be created by owner
   'GET /event/new':          { action: 'event/create-view' },
   'POST /event/new':         { action: 'event/create' },
   'GET /event/:id/edit':     { action: 'event/edit-view' },
   'GET /event/:id':          { action: 'event/show' },
+  //-------------------------------------------------------------------
 
   // Routes to handle tour - Users can add an arbitrary amount of bars in random order to their unique bar tour
   'GET /tour/add/:id':       { action: 'tour/add'},
-  'GET /tour/remove/:id':    { action: 'tour/remove-position' },
   'Get /tour/plan':          { action: 'tour/show-current-tour' },
-  'GET /tour/create':        { action: 'tour/create' },
+  'GET /tour/remove/:id':    { action: 'tour/remove-position' },
   'GET /tour/clear':         { action: 'tour/clear' },
-  'GET /tour/show/:id':      { action: 'tour/show' },
 
-  // Only german route? TODO
+  'GET /tour/create':        { action: 'tour/create' },
+  'POST /tour/edit':         { action: 'tour/edit' },
+  'GET /tour/kill/:id':      { action: 'tour/delete' },
+  'GET /tour/show/:id':      { action: 'tour/show' },
+  //-------------------------------------------------------------------
+
+  // Only german route?
   'GET /meinBereich':        { action: 'area/show' },
+
+  'Get /admin/panel':        { action: 'admin/panel-view' },
 
   // ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   // ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
