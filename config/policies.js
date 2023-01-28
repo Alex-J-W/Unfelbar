@@ -27,48 +27,61 @@ module.exports.policies = {
   // Custom policies for actions
   'dashboard/*': true,
 
-  // TODO: Could be removed due to  '*': 'is-super-admin'-rule
-  'bar/create-view': 'is-super-admin',
-  'bar/create-view-2': 'is-super-admin',
-  'bar/create': 'is-super-admin',
-  'bar/create-2': 'is-super-admin',
 
-  'bar/edit': 'is-owner',
+  //  ╦ ╦╔╗╔═╦═╔═╗╦  ╔╗ ╔═╗╦═╗
+  //  ║ ║║║║╞╬╡║╣ ║  ╠╩╗╠═╣╠╦╝
+  //  ╚═╝╝╚╝ ╩ ╚═╝╩═╝╚═╝╩ ╩╩╚═
+  // Policies created by PhiLex
+  // is-super-admin is already default, just for the sake of completeness stated
 
-  'bar/find-all': true,
-  'bar/find-by-name': true,
-  'bar/show': true,
+  'bar/create-view':                'is-super-admin',
+  'bar/create':                     'is-super-admin',
+  'bar/create-view-2':              'is-super-admin',
+  'bar/create-2':                   'is-super-admin',
+  'bar/edit-view':                  'is-owner',
+  'bar/edit':                       'is-owner',
+  'bar/find-all':                   true,
+  'bar/find-by-name':               true,
+  'bar/show':                       true,
+  //-------------------------------------------------------------------
 
-  'tour/add': 'is-logged-in',
-  'tour/remove-position': 'is-logged-in',
-  'tour/show-current-tour': 'is-logged-in',
-  'tour/create': 'is-logged-in',
-  'tour/show': 'is-logged-in',
+  'admin/category/create-view':     'is-super-admin',
+  'admin/category/create':          'is-super-admin',
+  'admin/category/edit-view':       'is-super-admin',
+  'admin/category/edit':            'is-super-admin',
+  'admin/category/delete':            'is-super-admin',
+  'admin/category/find':            'is-owner-or-admin',
+  'admin/panel-view':               'is-super-admin',
+  //-------------------------------------------------------------------
 
-  // TODO: Could be removed due to  '*': 'is-super-admin'-rule
-  'admin/category/create-view':'is-super-admin',
-  'admin/category/create': 'is-super-admin',
-  'admin/category/delete': 'is-super-admin',
-  'admin/category/find': 'is-owner-or-admin',
+  'item/create-view':               'is-owner',
+  'item/create':                    'is-owner',
+  'item/edit-view':                 'is-owner',
+  'item/edit':                      'is-owner',
+  'item/delete':                    'is-owner',
+  'item/show':                      'is-owner',
+  'item/find-all':                  true,
+  //-------------------------------------------------------------------
 
-  'item/create-view': 'is-owner',
-  'item/create': 'is-owner',
-  'item/edit-view': 'is-owner',
-  'item/edit': 'is-owner',
-  'item/delete': 'is-owner',
-  'item/show': 'is-owner',
-  // TODO: naming
-  'item/find-all': true,
+  'event/create-view':              'is-owner',
+  'event/create':                   'is-owner',
+  'event/edit-view':                'is-owner',
+  'event/show':                     true,
+  'event/update-tickets':           'is-logged-in',
+  //-------------------------------------------------------------------
 
-  'area/show': 'is-logged-in',
+  'tour/add':                       'is-logged-in',
+  'tour/remove-position':           'is-logged-in',
+  'tour/show-current-tour':         'is-logged-in',
+  'tour/create':                    'is-logged-in',
+  'tour/edit':                      'is-logged-in',
+  'tour/delete':                    'is-logged-in',
+  'tour/show':                      'is-logged-in',
+  //-------------------------------------------------------------------
 
-  // TODO: future
-  'event/create-view': 'is-owner',
-  'event/create': 'is-owner',
-  'event/edit-view': 'is-owner',
-  'event/show': true,
-  'event/update-tickets': 'is-logged-in',
+  'area/show':                      'is-logged-in',
+  //-------------------------------------------------------------------
 
-  'ticket/find': true,
-  'ticket/create': 'is-logged-in',
+  'ticket/find':                    true,
+  'ticket/create':                  'is-logged-in',
 };
